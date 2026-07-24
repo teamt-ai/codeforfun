@@ -5,13 +5,201 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CodeForFun 🚀 | Learn HTML for Kids 5-10 Years Old</title>
   
-  <!-- Google Fonts & Font Awesome Icons & Canvas Confetti CDN -->
+  <!-- Google Fonts & Canvas Confetti -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-  
-  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ALL CSS INLINED FOR 100% SELF-CONTAINED HTML FILE */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Fredoka', 'Quicksand', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(180deg, #FFFBEB 0%, #F3E8FF 50%, #FCE7F3 100%);
+      color: #1E1B4B;
+      min-height: 100vh;
+      padding-bottom: 3rem;
+    }
+    .hidden { display: none !important; }
+    .flex-center { display: flex; align-items: center; justify-content: center; }
+    .highlight { color: #D97706; text-decoration: underline; }
+
+    /* OVERLAYS & MODALS */
+    .overlay { position: fixed; inset: 0; z-index: 100; background: rgba(46, 16, 101, 0.85); backdrop-filter: blur(8px); padding: 1rem; }
+    .login-card {
+      background: #ffffff; width: 100%; max-width: 440px; border-radius: 2rem; padding: 2.5rem 2rem;
+      border: 4px solid #F59E0B; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35); text-align: center;
+      animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes popIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+    .login-icon { font-size: 3.5rem; margin-bottom: 0.5rem; }
+    .login-card h2 { font-size: 2rem; color: #312E81; font-weight: 700; margin-bottom: 0.5rem; }
+    .login-sub { font-size: 0.95rem; color: #4B5563; margin-bottom: 1.5rem; }
+    .form-group { text-align: left; margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: 0.75rem; font-weight: 700; color: #6B7280; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; }
+    .fun-input {
+      width: 100%; padding: 0.85rem 1.25rem; border-radius: 1.25rem; border: 2px solid #DDD6FE;
+      font-family: inherit; font-size: 1.1rem; font-weight: 700; color: #1E1B4B; text-align: center; outline: none; transition: border-color 0.2s;
+    }
+    .fun-input:focus { border-color: #8B5CF6; }
+    .fun-input.passcode { border-color: #F59E0B; background: #FEF3C7; font-size: 1.35rem; letter-spacing: 0.1em; }
+    .error-badge { background: #FEE2E2; color: #DC2626; font-size: 0.85rem; font-weight: 700; padding: 0.6rem 1rem; border-radius: 1rem; margin-bottom: 1rem; border: 1px solid #FCA5A5; }
+    .btn-primary-gradient {
+      background: linear-gradient(135deg, #F59E0B 0%, #EA580C 50%, #EC4899 100%); color: #ffffff; border: none;
+      padding: 1rem 1.5rem; border-radius: 1.25rem; font-family: inherit; font-size: 1.2rem; font-weight: 700; cursor: pointer;
+      box-shadow: 0 10px 15px -3px rgba(234, 88, 12, 0.4); transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-primary-gradient:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 15px 20px -3px rgba(234, 88, 12, 0.5); }
+    .btn-primary-gradient:active { transform: translateY(0) scale(0.98); }
+    .w-full { width: 100%; }
+    .login-footer { font-size: 0.8rem; color: #9CA3AF; margin-top: 1.25rem; }
+
+    /* NAVBAR */
+    .navbar { background: #312E81; color: #ffffff; position: sticky; top: 0; z-index: 50; border-bottom: 4px solid #F59E0B; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2); }
+    .nav-container { max-width: 1280px; margin: 0 auto; padding: 0.85rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .brand { display: flex; items-center; gap: 0.75rem; }
+    .brand-logo { width: 3rem; height: 3rem; background: #F59E0B; color: #312E81; border-radius: 1.25rem; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transform: rotate(-4deg); }
+    .brand-title { font-size: 1.4rem; font-weight: 700; }
+    .badge-mini { background: #4338CA; color: #FDE047; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.6rem; border-radius: 1rem; border: 1px solid #6366F1; margin-left: 0.35rem; vertical-align: middle; }
+    .brand-sub { font-size: 0.8rem; color: #C7D2FE; }
+    .nav-stats { display: flex; align-items: center; gap: 0.85rem; flex-wrap: wrap; }
+    .progress-box { display: flex; align-items: center; gap: 0.6rem; background: rgba(15, 23, 42, 0.6); padding: 0.4rem 0.85rem; border-radius: 1.25rem; border: 1px solid #4338CA; }
+    .progress-label { font-size: 0.75rem; color: #C7D2FE; font-weight: 700; text-transform: uppercase; }
+    .progress-bar-bg { width: 100px; background: #1E1B4B; height: 0.85rem; border-radius: 1rem; overflow: hidden; border: 1px solid #4338CA; }
+    .progress-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #F59E0B 0%, #EC4899 100%); transition: width 0.4s ease; }
+    .badge-percent { background: #F59E0B; color: #1E1B4B; font-weight: 700; font-size: 0.8rem; padding: 0.15rem 0.5rem; border-radius: 0.75rem; }
+    .btn-cert { background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: #ffffff; border: none; padding: 0.5rem 1rem; border-radius: 1rem; font-family: inherit; font-size: 0.85rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.15s; }
+    .btn-cert:hover { transform: scale(1.05); }
+    .user-pill { background: #4338CA; color: #FDE047; font-size: 0.8rem; font-weight: 700; padding: 0.4rem 0.85rem; border-radius: 1rem; display: flex; align-items: center; gap: 0.5rem; border: 1px solid #6366F1; }
+    .passcode-tag { background: rgba(245, 158, 11, 0.2); color: #FDE047; font-family: 'Fira Code', monospace; font-size: 0.75rem; padding: 0.15rem 0.4rem; border-radius: 0.5rem; }
+    .btn-icon { background: #4338CA; color: #C7D2FE; border: none; padding: 0.4rem 0.6rem; border-radius: 0.75rem; cursor: pointer; font-size: 1rem; }
+    .btn-icon:hover { color: #ffffff; background: #3730A3; }
+    .btn-text { background: #4338CA; color: #E0E7FF; border: none; padding: 0.4rem 0.85rem; border-radius: 0.75rem; font-family: inherit; font-size: 0.8rem; font-weight: 700; cursor: pointer; }
+
+    /* MAIN CONTENT */
+    .main-content { max-width: 1280px; margin: 1.5rem auto 0; padding: 0 1.25rem; display: flex; flex-direction: column; gap: 2rem; }
+
+    /* HERO BANNER */
+    .hero-banner {
+      background: linear-gradient(135deg, #312E81 0%, #4338CA 60%, #1E1B4B 100%); color: #ffffff; border-radius: 2rem;
+      padding: 2.5rem 2rem; border: 4px solid #F59E0B; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2); display: flex;
+      align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .hero-tag { background: #F59E0B; color: #1E1B4B; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 1rem; display: inline-block; margin-bottom: 0.75rem; }
+    .hero-text h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .hero-text p { color: #E0E7FF; font-size: 1.1rem; max-width: 600px; }
+    .btn-hero-cert {
+      background: linear-gradient(135deg, #F59E0B 0%, #EA580C 100%); color: #ffffff; border: 2px solid #FDE047;
+      padding: 1rem 1.75rem; border-radius: 1.25rem; font-family: inherit; font-size: 1.1rem; font-weight: 700; cursor: pointer;
+      box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.4); transition: transform 0.15s;
+    }
+    .btn-hero-cert:hover { transform: scale(1.05); }
+
+    /* MODULE MAP */
+    .section-title { font-size: 1.35rem; font-weight: 700; color: #312E81; margin-bottom: 0.85rem; }
+    .module-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 0.85rem; }
+    .mod-btn {
+      background: #ffffff; border: 3px solid #DDD6FE; border-radius: 1.25rem; padding: 1rem; text-align: left; cursor: pointer;
+      transition: all 0.2s; display: flex; flex-direction: column; justify-content: space-between; height: 120px; position: relative; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    .mod-btn:hover { border-color: #8B5CF6; transform: translateY(-2px); }
+    .mod-btn.active { background: #312E81; color: #ffffff; border-color: #F59E0B; box-shadow: 0 10px 15px -3px rgba(49, 46, 129, 0.4); transform: scale(1.03); }
+    .mod-btn.completed { background: #ECFDF5; border-color: #10B981; }
+    .mod-emoji { font-size: 1.75rem; }
+    .mod-lesson-num { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: #7C3AED; }
+    .mod-btn.active .mod-lesson-num { color: #FDE047; }
+    .mod-title { font-size: 0.85rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .checkmark-icon { position: absolute; top: 0.75rem; right: 0.75rem; font-size: 1.1rem; }
+
+    /* LESSON CARD */
+    .lesson-card { background: #ffffff; border-radius: 2rem; padding: 2rem; border: 4px solid #DDD6FE; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; gap: 2rem; }
+    .lesson-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: 2px solid #F3E8FF; padding-bottom: 1.25rem; flex-wrap: wrap; }
+    .lesson-header-left { display: flex; align-items: center; gap: 1.25rem; }
+    .lesson-emoji-box { width: 4.5rem; height: 4.5rem; border-radius: 1.5rem; background: #F5F3FF; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+    .lesson-badge-tag { background: #F3E8FF; color: #6D28D9; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 1rem; text-transform: uppercase; }
+    .lesson-title-text { font-size: 1.85rem; color: #1E1B4B; margin-top: 0.2rem; }
+    .lesson-summary-text { font-size: 0.95rem; color: #6B7280; }
+    .badge-reward-pill { background: #FEF3C7; color: #92400E; font-weight: 700; font-size: 0.85rem; padding: 0.5rem 1rem; border-radius: 1rem; border: 1px solid #FCD34D; }
+
+    /* ANALOGY CARD */
+    .analogy-card { background: linear-gradient(135deg, #312E81 0%, #4338CA 100%); color: #ffffff; padding: 1.75rem; border-radius: 1.75rem; border: 3px solid #FCD34D; box-shadow: 0 10px 15px -3px rgba(49, 46, 129, 0.3); }
+    .analogy-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.85rem; }
+    .analogy-icon { font-size: 2.25rem; }
+    .analogy-tag { color: #FDE047; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+    .analogy-header h3 { font-size: 1.5rem; font-weight: 700; }
+    .analogy-desc { font-size: 1.1rem; line-height: 1.6; color: #E0E7FF; }
+
+    /* EXPLANATION GRID */
+    .explanation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
+    .exp-box { background: #FEF3C7; padding: 1.25rem; border-radius: 1.25rem; border: 2px solid #FDE68A; }
+    .exp-box h4 { font-size: 1.1rem; color: #78350F; margin-bottom: 0.5rem; }
+    .exp-box p { font-size: 0.95rem; color: #92400E; line-height: 1.5; margin-bottom: 0.75rem; }
+    .code-example-block { background: #1E1B4B; color: #FDE047; font-family: 'Fira Code', monospace; font-size: 0.85rem; padding: 0.75rem 1rem; border-radius: 0.85rem; overflow-x: auto; }
+
+    /* QUIZ CONTAINER */
+    .step-title { font-size: 1.35rem; color: #312E81; margin-bottom: 1rem; }
+    .quiz-card { background: #ffffff; border: 3px solid #FCD34D; border-radius: 1.75rem; padding: 1.5rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); display: flex; flex-direction: column; gap: 1.25rem; }
+    .quiz-header { display: flex; align-items: center; justify-content: space-between; }
+    .quiz-tag { background: #F59E0B; color: #1E1B4B; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 1rem; text-transform: uppercase; }
+    .btn-hint { background: #F3E8FF; color: #6D28D9; border: 1px solid #DDD6FE; padding: 0.4rem 0.85rem; border-radius: 0.85rem; font-family: inherit; font-size: 0.8rem; font-weight: 700; cursor: pointer; }
+    .quiz-prompt-text { font-size: 1.25rem; color: #1E1B4B; }
+    .code-snippet-box { background: #1E1B4B; color: #FDE047; font-family: 'Fira Code', monospace; font-size: 1.1rem; padding: 1.25rem; border-radius: 1.25rem; text-align: center; border: 2px solid #4338CA; }
+    .blank-slot { background: #F59E0B; color: #1E1B4B; padding: 0.2rem 0.85rem; border-radius: 0.5rem; font-weight: 700; margin: 0 0.25rem; display: inline-block; min-width: 3.5rem; }
+    .hint-box { background: #FEF3C7; color: #78350F; font-size: 0.9rem; padding: 1rem; border-radius: 1rem; border: 1px solid #FCD34D; }
+    .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.75rem; }
+    .opt-btn { background: #F9FAFB; border: 2px solid #E5E7EB; border-radius: 1rem; padding: 0.85rem; font-family: 'Fira Code', monospace; font-size: 1.2rem; font-weight: 700; color: #312E81; cursor: pointer; transition: all 0.15s; }
+    .opt-btn:hover { background: #F3E8FF; border-color: #C4B5FD; transform: scale(1.03); }
+    .opt-btn.selected { background: #6D28D9; color: #ffffff; border-color: #4C1D95; }
+    .quiz-footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .feedback-msg { font-size: 1rem; font-weight: 700; padding: 0.6rem 1.25rem; border-radius: 1rem; }
+    .feedback-msg.correct { background: #D1FAE5; color: #065F46; border: 1px solid #6EE7B7; }
+    .feedback-msg.wrong { background: #FEE2E2; color: #991B1B; border: 1px solid #FCA5A5; }
+    .btn-action { background: linear-gradient(135deg, #F59E0B 0%, #EA580C 100%); color: #ffffff; border: none; padding: 0.85rem 1.75rem; border-radius: 1.25rem; font-family: inherit; font-size: 1.1rem; font-weight: 700; cursor: pointer; margin-left: auto; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.15s; }
+    .btn-action.success { background: linear-gradient(135deg, #10B981 0%, #059669 100%); }
+    .btn-action:hover { transform: scale(1.05); }
+
+    /* PLAYGROUND */
+    .playground-box { background: #1E1B4B; border-radius: 1.75rem; padding: 1.25rem; border: 4px solid #4338CA; box-shadow: 0 15px 25px -5px rgba(0,0,0,0.3); }
+    .playground-bar { display: flex; align-items: center; justify-content: space-between; background: #312E81; padding: 0.75rem 1rem; border-radius: 1rem; margin-bottom: 1rem; border: 1px solid #4338CA; }
+    .lab-title { color: #ffffff; font-weight: 700; font-size: 1.1rem; }
+    .lab-tools { display: flex; align-items: center; gap: 0.75rem; }
+    .btn-subtle { background: #4338CA; color: #C7D2FE; border: 1px solid #6366F1; padding: 0.35rem 0.75rem; border-radius: 0.75rem; font-family: inherit; font-size: 0.75rem; font-weight: 700; cursor: pointer; }
+    .live-tag { background: rgba(16, 185, 129, 0.2); color: #34D399; font-size: 0.75rem; font-weight: 700; padding: 0.35rem 0.75rem; border-radius: 0.75rem; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .playground-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+    .pane-header { background: #4338CA; color: #E0E7FF; font-size: 0.75rem; font-weight: 700; padding: 0.4rem 1rem; border-radius: 0.75rem 0.75rem 0 0; text-transform: uppercase; }
+    .code-textarea { width: 100%; height: 280px; background: #0F172A; color: #FDE047; font-family: 'Fira Code', monospace; font-size: 0.95rem; padding: 1rem; border: 2px solid #4338CA; border-radius: 0 0 1rem 1rem; outline: none; resize: vertical; }
+    .preview-iframe { width: 100%; height: 280px; background: #FFFBEB; border: 2px solid #F59E0B; border-radius: 0 0 1rem 1rem; }
+
+    /* NAVIGATION FOOTER */
+    .lesson-nav-footer { display: flex; align-items: center; justify-content: space-between; border-top: 2px solid #F3E8FF; padding-top: 1.25rem; }
+    .btn-nav { background: #F3E8FF; color: #6D28D9; border: none; padding: 0.75rem 1.5rem; border-radius: 1.25rem; font-family: inherit; font-size: 0.95rem; font-weight: 700; cursor: pointer; }
+    .btn-nav.primary { background: linear-gradient(135deg, #F59E0B 0%, #EA580C 100%); color: #ffffff; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .counter-tag { font-size: 0.85rem; font-weight: 700; color: #6D28D9; }
+
+    /* CERTIFICATE MODAL */
+    .cert-modal { background: #ffffff; width: 100%; max-width: 720px; border-radius: 2rem; padding: 2.5rem; border: 6px solid #F59E0B; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4); position: relative; text-align: center; }
+    .btn-close { position: absolute; top: 1rem; right: 1rem; background: #F3F4F6; border: none; font-size: 1.5rem; width: 2.5rem; height: 2.5rem; border-radius: 50%; cursor: pointer; }
+    .cert-frame { border: 4px dashed #C4B5FD; border-radius: 1.5rem; padding: 2rem; background: linear-gradient(180deg, #FFFBEB 0%, #ffffff 50%, #F3E8FF 100%); }
+    .cert-icon { font-size: 3.5rem; margin-bottom: 0.5rem; }
+    .cert-heading { font-size: 2.25rem; color: #312E81; font-weight: 700; }
+    .cert-sub { font-size: 0.85rem; color: #D97706; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem; }
+    .cert-body-text { font-size: 1rem; color: #4B5563; }
+    .cert-name { font-size: 2.75rem; color: #4C1D95; border-bottom: 4px solid #F59E0B; display: inline-block; padding: 0 2rem 0.5rem; margin: 0.5rem 0 1.5rem; }
+    .cert-desc { font-size: 1.05rem; color: #374151; max-width: 540px; margin: 0 auto 1.5rem; line-height: 1.6; }
+    .cert-footer { display: flex; align-items: center; justify-content: space-between; border-top: 2px dashed #E9D5FF; padding-top: 1.25rem; }
+    .cert-label { display: block; font-size: 0.7rem; color: #9CA3AF; font-weight: 700; text-transform: uppercase; }
+    .cert-val { font-size: 0.95rem; font-weight: 700; color: #111827; }
+    .cert-stamp { background: #D1FAE5; color: #065F46; font-size: 0.8rem; font-weight: 700; padding: 0.4rem 0.85rem; border-radius: 1rem; border: 1px solid #6EE7B7; }
+    .cert-actions { margin-top: 1.5rem; }
+
+    @media print {
+      body * { visibility: hidden; }
+      #cert-overlay, #cert-overlay * { visibility: visible; }
+      #cert-overlay { position: absolute; left: 0; top: 0; width: 100%; background: white; }
+      .btn-close, .cert-actions { display: none; }
+    }
+  </style>
 </head>
 <body>
 
@@ -251,6 +439,646 @@
     </div>
   </div>
 
-  <script src="app.js"></script>
+  <script>
+    // ALL JS LOGIC INLINED FOR 100% SELF-CONTAINED HTML FILE
+    const HTML_MODULES = [
+      {
+        id: 1,
+        title: '1. What is HTML? The Magic Lego Bricks of the Web!',
+        badgeName: 'Lego Architect 🧱',
+        emoji: '🧱',
+        summary: 'Discover how web pages are built just like Lego castles using magic tags!',
+        analogy: {
+          title: 'Imagine Building a Toy Castle 🏰',
+          description: 'HTML stands for HyperText Markup Language. Think of HTML as a giant box of colorful Lego bricks! Just like you snap blue bricks for walls and red bricks for roofs, HTML uses special tags like <h1> and <p> to snap titles, stories, and photos onto your computer screen!',
+          icon: '🧩'
+        },
+        explanations: [
+          {
+            heading: 'What is a Tag?',
+            text: 'A tag is a magic label wrapped in angle brackets `<` and `>`. Tags come in pairs! An opening tag `<h1>` says "Start Title!", and a closing tag `</h1>` (with a slash `/`) says "Stop Title!"'
+          },
+          {
+            heading: 'Why do we need Tags?',
+            text: 'Computers need clear instructions! Without tags, a computer just sees a big pile of messy words. Tags tell the computer: "Hey! Make this big, make this a photo, and make this a button!"',
+            codeExample: '<h1>My Awesome Pet Dragon 🐉</h1>\n<p>His name is Sparky and he loves tacos!</p>'
+          }
+        ],
+        initialCode: '<h1>Welcome to Dragon Land</h1>\n<p>Touch the screen to feed Sparky the Dragon! 🐉</p>',
+        quizzes: [
+          {
+            prompt: 'Which magic tag tells the computer to START a big title?',
+            snippet: '<__?>My Secret Treasure Chest</h1>',
+            blankAnswer: 'h1',
+            options: ['h1', '/h1', 'title', 'box'],
+            explanation: '`<h1>` is the opening tag for the biggest, boldest title on a web page!'
+          },
+          {
+            prompt: 'What special symbol goes inside a CLOSING tag to say "STOP"?',
+            snippet: '<__?>h1>',
+            blankAnswer: '/',
+            options: ['/', '!', '#', '*'],
+            explanation: 'The slash `/` is the magic "stop" sign for closing tags!'
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: '2. Headings & Titles: From Giant Kings to Tiny Knights! 👑',
+        badgeName: 'Royal Crown 👑',
+        emoji: '👑',
+        summary: 'Learn h1, h2, h3, h4, h5, and h6 to make titles of all shapes and sizes!',
+        analogy: {
+          title: 'The Royal Heading Family 🏰',
+          description: 'HTML has 6 heading tags, from <h1> to <h6>. Think of <h1> as the Giant King Heading (the biggest!), <h2> as the Queen Heading, <h3> as the Prince, down to <h6> as the tiny Mouse Knight!',
+          icon: '👑'
+        },
+        explanations: [
+          {
+            heading: 'Why 6 Headings?',
+            text: 'When you read a comic book or newspaper, the main headline is BIG, and smaller chapter titles are medium sized. Using different headings helps people read your website easily!'
+          },
+          {
+            heading: 'Heading Examples in Action',
+            text: '`<h1>` is for the main website title. `<h2>` is for section headings. `<h3>` is for small topic titles.',
+            codeExample: '<h1>🚀 Space Exploration Club</h1>\n<h2>Moon Mission 1</h2>\n<h3>Rocket Countdown</h3>'
+          }
+        ],
+        initialCode: '<h1>Super Rocket Academy 🚀</h1>\n<h2>Chapter 1: Blast Off!</h2>\n<h3>3... 2... 1... Ignition!</h3>',
+        quizzes: [
+          {
+            prompt: 'Which heading tag makes the BIGGEST title on the whole page?',
+            snippet: '<__?>The Giant Alien Ship</h1>',
+            blankAnswer: 'h1',
+            options: ['h1', 'h6', 'h10', 'big'],
+            explanation: '`<h1>` is the King of headings — the largest title available!'
+          },
+          {
+            prompt: 'Fill in the missing tag for a medium chapter title:',
+            snippet: '<h2>Chapter 2: The Moon Base<__?>',
+            blankAnswer: '/h2',
+            options: ['/h2', '/h1', '/h6', '/title'],
+            explanation: '`</h2>` closes the medium `<h2>` chapter title cleanly!'
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: '3. Paragraphs & Storytelling: Typing with `<p>` 📖',
+        badgeName: 'Story Wizard 🧙‍♂️',
+        emoji: '📖',
+        summary: 'Write stories, fun facts, and messages using the paragraph tag!',
+        analogy: {
+          title: 'Your Digital Notebook 📝',
+          description: 'The `<p>` tag stands for Paragraph! Whenever you want to write a story sentence, a joke, or a description of your pet, you wrap your text inside `<p>` and `</p>`. It tells the computer to put space around your text like a nice clean paragraph in a book.',
+          icon: '✍️'
+        },
+        explanations: [
+          {
+            heading: 'How to use `<p>`',
+            text: 'Place your story right between `<p>` and `</p>`. You can have as many paragraphs as you like on your page!'
+          },
+          {
+            heading: 'Paragraph Example',
+            text: 'Watch how each paragraph gets its own clean line and spacing on the web page:',
+            codeExample: '<p>Once upon a time, a fluffy cat learned to fly a helicopter.</p>\n<p>She flew all the way to Rainbow Island!</p>'
+          }
+        ],
+        initialCode: '<h1>My Flying Puppy 🐶</h1>\n<p>Barnaby is a golden retriever with tiny blue wings.</p>\n<p>He loves eating cheese in the clouds!</p>',
+        quizzes: [
+          {
+            prompt: 'What tag is used to write regular story sentences or paragraphs?',
+            snippet: '<__?>I love playing video games with my friends.</p>',
+            blankAnswer: 'p',
+            options: ['p', 'story', 'text', 'para'],
+            explanation: '`<p>` stands for Paragraph!'
+          }
+        ]
+      },
+      {
+        id: 4,
+        title: '4. Magic Photos & Pictures: `<img>`, `src` & `alt` 🖼️',
+        badgeName: 'Photo Wizard 📸',
+        emoji: '🖼️',
+        summary: 'Show awesome pictures on your web page using img, src, and alt attributes!',
+        analogy: {
+          title: 'The Magical Picture Frame 🖼️',
+          description: 'The `<img>` tag is a photo frame! But a frame needs a picture inside it! We use `src="..."` (Source) to give the computer the web address of the picture. And we use `alt="..."` (Alternative Text) as a secret whisper to describe what the photo shows!',
+          icon: '🖼️'
+        },
+        explanations: [
+          {
+            heading: 'The Self-Closing Magic!',
+            text: 'Unlike `<h1>` or `<p>`, the `<img>` tag is a SOLO HERO! It does NOT need a closing `</img>` tag because the picture lives entirely inside the attributes!'
+          },
+          {
+            heading: 'Image Example',
+            text: 'Here is how you display a cute kitten picture on a website:',
+            codeExample: '<img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=300" alt="A cute superhero puppy">'
+          }
+        ],
+        initialCode: '<h2>Superhero Puppy 🐶</h2>\n<img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=300" alt="Superhero puppy looking cool" />\n<p>Meet Buster, the fastest dog on Earth!</p>',
+        quizzes: [
+          {
+            prompt: 'Which attribute tells the computer WHERE to find the photo file or image link?',
+            snippet: '<img __?>="cute_dog.jpg" alt="A cute dog">',
+            blankAnswer: 'src',
+            options: ['src', 'link', 'url', 'photo'],
+            explanation: '`src` stands for Source — the address where the picture is located!'
+          }
+        ]
+      },
+      {
+        id: 5,
+        title: '5. Teleport Portals & Action Buttons: `<a>` & `<button>` 🚀',
+        badgeName: 'Portal Master 🌀',
+        emoji: '🌀',
+        summary: 'Build clickable teleport links with <a> and interactive action buttons with <button>!',
+        analogy: {
+          title: 'Teleportation Portals! 🌌',
+          description: 'The `<a>` tag stands for Anchor (or Portal!). When you click an `<a>` link with `href="https://..."`, your browser instantly teleports to a new web page! The `<button>` tag creates a satisfying clicky button for games and popups!',
+          icon: '🚀'
+        },
+        explanations: [
+          {
+            heading: 'What is `href`?',
+            text: '`href` stands for Hypertext REFerence — it is the destination portal address where your link takes the player when clicked!'
+          },
+          {
+            heading: 'Links vs Buttons',
+            text: 'Use `<a>` to teleport to a new page. Use `<button>` for actions like "Play Game", "Jump!", or "Launch Rocket"!',
+            codeExample: '<a href="https://wikipedia.org">Visit Magic Wiki 🌌</a>\n<button>🚀 Launch Spaceship!</button>'
+          }
+        ],
+        initialCode: '<h1>Portal Station 🚀</h1>\n<a href="https://google.com">Teleport to Search Engine 🌌</a>\n<br><br>\n<button onclick="alert(\'Blast Off!\')">Press to Launch Rocket! 🚀</button>',
+        quizzes: [
+          {
+            prompt: 'Which attribute inside `<a>` specifies the destination URL portal address?',
+            snippet: '<a __?>="https://codeforfun.com">Play Code Games</a>',
+            blankAnswer: 'href',
+            options: ['href', 'target', 'go', 'to'],
+            explanation: '`href` holds the link web address!'
+          }
+        ]
+      },
+      {
+        id: 6,
+        title: '6. Lists & Inventories: `<ul>`, `<ol>`, & `<li>` 📋',
+        badgeName: 'Inventory Hero 🎒',
+        emoji: '📋',
+        summary: 'Organize items using bullet lists (ul), numbered lists (ol), and list items (li)!',
+        analogy: {
+          title: 'Your Gamer Backpack Inventory 🎒',
+          description: 'Imagine opening your video game inventory bag! Bullet lists `<ul>` (Unordered List) show dots for items like snacks or toys. Numbered lists `<ol>` (Ordered List) show 1, 2, 3 steps for high scores or baking recipes! Every item inside uses `<li>` (List Item).',
+          icon: '🎒'
+        },
+        explanations: [
+          {
+            heading: 'How Lists Work Together',
+            text: '`<ul>` or `<ol>` is the outer container box. `<li>` wraps each item inside the box!'
+          }
+        ],
+        initialCode: '<h2>🎒 My Top 3 Favorite Games</h2>\n<ol>\n  <li>Minecraft</li>\n  <li>Roblox</li>\n  <li>Super Mario Bros</li>\n</ol>',
+        quizzes: [
+          {
+            prompt: 'Which tag wraps EACH individual item inside a list?',
+            snippet: '<ul>\n  <__?>Golden Sword</li>\n</ul>',
+            blankAnswer: 'li',
+            options: ['li', 'ul', 'ol', 'item'],
+            explanation: '`<li>` stands for List Item!'
+          }
+        ]
+      },
+      {
+        id: 7,
+        title: '7. Toy Boxes & Highlighters: `<div>` & `<span>` 📦',
+        badgeName: 'Box Stacker 📦',
+        emoji: '📦',
+        summary: 'Group big sections using div boxes and highlight special text using span!',
+        analogy: {
+          title: 'Toy Boxes & Magic Highlighters 📦',
+          description: 'Think of `<div>` as a giant plastic storage box to group toys together on a shelf. Think of `<span>` as a neon yellow highlighter marker to make a single word pop out inside a sentence!',
+          icon: '📦'
+        },
+        explanations: [
+          {
+            heading: 'Block vs Inline Containers',
+            text: '`<div>` takes up a full new block line. `<span>` sits inline inside a sentence without breaking the text flow!'
+          }
+        ],
+        initialCode: '<div style="background: #FEF3C7; padding: 15px;">\n  <h2>Secret Cave Treasure 💎</h2>\n  <p>I found a <span style="color: #DC2626; font-weight: bold;">fire-red</span> ruby!</p>\n</div>',
+        quizzes: [
+          {
+            prompt: 'Which container tag is used to group big layout blocks on a web page?',
+            snippet: '<__?>\n  <h1>Welcome to my Fortress</h1>\n</div>',
+            blankAnswer: 'div',
+            options: ['div', 'span', 'box', 'section'],
+            explanation: '`<div>` (Division) is the main container box tag in HTML!'
+          }
+        ]
+      },
+      {
+        id: 8,
+        title: '8. Interactive Forms & Inputs: Asking Questions! 🎮',
+        badgeName: 'Game Controller 🎮',
+        emoji: '🎮',
+        summary: 'Let players type names, pick colors, check boxes, and slide controls with input!',
+        analogy: {
+          title: 'Your Video Game Character Creator 🎮',
+          description: 'Ever created a character in a game where you type your hero name, pick your armor color, and slide your power levels? That is made with `<input>` tags inside a `<form>`!',
+          icon: '🎮'
+        },
+        explanations: [
+          {
+            heading: 'Input Types',
+            text: '`<input type="text">` creates a typing box. `<input type="color">` opens a color picker! `<input type="checkbox">` makes a check box!'
+          }
+        ],
+        initialCode: '<h2>🎮 Character Creator</h2>\n<form>\n  <label>Hero Name:</label><br>\n  <input type="text" placeholder="e.g. Captain Spark"><br><br>\n  <label>Armor Color:</label><br>\n  <input type="color"><br><br>\n  <button type="button">Save Hero! 🛡️</button>\n</form>',
+        quizzes: [
+          {
+            prompt: 'Which input type lets a player type text sentences into a web page?',
+            snippet: '<input type="__?">',
+            blankAnswer: 'text',
+            options: ['text', 'color', 'checkbox', 'range'],
+            explanation: '`type="text"` creates a text typing box!'
+          }
+        ]
+      },
+      {
+        id: 9,
+        title: '9. Leaderboard Tables: `<table>`, `<tr>`, `<th>`, & `<td>` 🏆',
+        badgeName: 'Score Master 🏆',
+        emoji: '🏆',
+        summary: 'Build high-score leaderboards and game stats using HTML tables!',
+        analogy: {
+          title: 'The High Score Leaderboard Board 📊',
+          description: 'A table is like a grid game board! `<table>` is the table board. `<tr>` (Table Row) is a horizontal row from left to right. `<th>` (Table Header) is a bold column header title. `<td>` (Table Data) is the individual score cell!',
+          icon: '🏆'
+        },
+        explanations: [
+          {
+            heading: 'Table Anatomy',
+            text: 'Rows `<tr>` hold data cells `<td>` side by side like Lego tiles in a row.'
+          }
+        ],
+        initialCode: '<h2>🏆 Game High Scores</h2>\n<table>\n  <tr>\n    <th>Player</th>\n    <th>Score</th>\n  </tr>\n  <tr>\n    <td>Alex</td>\n    <td>9,500 pts</td>\n  </tr>\n  <tr>\n    <td>Sam</td>\n    <td>8,900 pts</td>\n  </tr>\n</table>',
+        quizzes: [
+          {
+            prompt: 'Which tag creates a horizontal row inside a table?',
+            snippet: '<table>\n  <__?>\n    <td>Item 1</td>\n  </tr>\n</table>',
+            blankAnswer: 'tr',
+            options: ['tr', 'td', 'th', 'table'],
+            explanation: '`<tr>` stands for Table Row!'
+          }
+        ]
+      },
+      {
+        id: 10,
+        title: '10. The Master Website Blueprint: DOCTYPE, html, head, & body 🏰',
+        badgeName: 'HTML Master Legend 👑🌟',
+        emoji: '🏰',
+        summary: 'Combine everything you learned into a complete, professional HTML web page!',
+        analogy: {
+          title: 'The Human Body Analogy 🧍‍♂️',
+          description: 'Every real web page has a complete skeleton structure! `<!DOCTYPE html>` is the passport. `<html>` is the entire body. `<head>` is the brain (holds title and secret settings). `<body>` is the main body where all visible pictures, text, and buttons live!',
+          icon: '🧠'
+        },
+        explanations: [
+          {
+            heading: 'Head vs Body',
+            text: '`<head>` contains invisible metadata and the browser tab `<title>`. `<body>` contains everything you SEE on screen!'
+          }
+        ],
+        initialCode: '<!DOCTYPE html>\n<html>\n  <head>\n    <title>My Super Web Castle</title>\n  </head>\n  <body>\n    <h1>Welcome to My Website! 🚀</h1>\n    <p>I built this using HTML magic!</p>\n  </body>\n</html>',
+        quizzes: [
+          {
+            prompt: 'Where do visible titles, photos, and buttons live on a web page?',
+            snippet: '<__?>\n  <h1>I am visible!</h1>\n</body>',
+            blankAnswer: 'body',
+            options: ['body', 'head', 'title', 'footer'],
+            explanation: '`<body>` holds all visible content that visitors see on screen!'
+          }
+        ]
+      }
+    ];
+
+    let currentCoderName = localStorage.getItem('codeforfun_user') || '';
+    let completedModules = JSON.parse(localStorage.getItem('codeforfun_progress') || '[]');
+    let activeModuleId = 1;
+    let currentQuizIndex = 0;
+    let selectedOption = '';
+
+    const loginOverlay = document.getElementById('login-overlay');
+    const loginForm = document.getElementById('login-form');
+    const kidNameInput = document.getElementById('kid-name-input');
+    const passcodeInput = document.getElementById('passcode-input');
+    const loginError = document.getElementById('login-error');
+
+    const displayCoderName = document.getElementById('display-coder-name');
+    const progressBarFill = document.getElementById('progress-bar-fill');
+    const progressText = document.getElementById('progress-text');
+    const progressPercent = document.getElementById('progress-percent');
+
+    const btnCert = document.getElementById('btn-cert');
+    const heroCertBtn = document.getElementById('hero-cert-btn');
+    const certOverlay = document.getElementById('cert-overlay');
+    const btnCloseCert = document.getElementById('btn-close-cert');
+
+    const moduleGrid = document.getElementById('module-grid');
+    const codeEditor = document.getElementById('code-editor');
+    const previewIframe = document.getElementById('preview-iframe');
+
+    function initApp() {
+      if (currentCoderName) {
+        loginOverlay.classList.add('hidden');
+        displayCoderName.textContent = currentCoderName;
+      } else {
+        loginOverlay.classList.remove('hidden');
+      }
+
+      updateProgressUI();
+      renderModuleGrid();
+      loadModule(activeModuleId);
+      setupEventListeners();
+    }
+
+    function setupEventListeners() {
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const code = passcodeInput.value.trim().toLowerCase();
+        if (code === 'codeforfun') {
+          const name = kidNameInput.value.trim() || 'Young Coder';
+          currentCoderName = name;
+          localStorage.setItem('codeforfun_user', name);
+          displayCoderName.textContent = name;
+          loginOverlay.classList.add('hidden');
+          triggerConfetti();
+        } else {
+          loginError.textContent = 'Oops! Secret passcode is "codeforfun" 🔑 Try typing: codeforfun';
+          loginError.classList.remove('hidden');
+        }
+      });
+
+      document.getElementById('btn-logout').addEventListener('click', () => {
+        localStorage.removeItem('codeforfun_user');
+        currentCoderName = '';
+        loginOverlay.classList.remove('hidden');
+      });
+
+      document.getElementById('btn-reset').addEventListener('click', () => {
+        if (confirm('Are you sure you want to restart your HTML adventure from Module 1?')) {
+          completedModules = [];
+          localStorage.removeItem('codeforfun_progress');
+          activeModuleId = 1;
+          updateProgressUI();
+          renderModuleGrid();
+          loadModule(1);
+        }
+      });
+
+      btnCert.addEventListener('click', openCertificate);
+      heroCertBtn.addEventListener('click', openCertificate);
+      btnCloseCert.addEventListener('click', () => certOverlay.classList.add('hidden'));
+
+      codeEditor.addEventListener('keyup', updateLivePreview);
+
+      document.getElementById('btn-reset-code').addEventListener('click', () => {
+        const mod = HTML_MODULES.find(m => m.id === activeModuleId);
+        if (mod) {
+          codeEditor.value = mod.initialCode;
+          updateLivePreview();
+        }
+      });
+
+      document.getElementById('btn-prev-lesson').addEventListener('click', () => {
+        if (activeModuleId > 1) {
+          activeModuleId--;
+          loadModule(activeModuleId);
+        }
+      });
+
+      document.getElementById('btn-next-lesson').addEventListener('click', () => {
+        if (activeModuleId < HTML_MODULES.length) {
+          activeModuleId++;
+          loadModule(activeModuleId);
+        }
+      });
+
+      document.getElementById('btn-quiz-hint').addEventListener('click', () => {
+        const hintBox = document.getElementById('quiz-hint-box');
+        hintBox.classList.toggle('hidden');
+      });
+
+      document.getElementById('btn-check-quiz').addEventListener('click', checkQuizAnswer);
+      document.getElementById('btn-next-quiz').addEventListener('click', nextQuizQuestion);
+    }
+
+    function renderModuleGrid() {
+      moduleGrid.innerHTML = '';
+      HTML_MODULES.forEach(mod => {
+        const isActive = mod.id === activeModuleId;
+        const isDone = completedModules.includes(mod.id);
+
+        const btn = document.createElement('button');
+        btn.className = `mod-btn ${isActive ? 'active' : ''} ${isDone ? 'completed' : ''}`;
+        btn.onclick = () => {
+          activeModuleId = mod.id;
+          renderModuleGrid();
+          loadModule(mod.id);
+        };
+
+        btn.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="mod-emoji">${mod.emoji}</span>
+            ${isDone ? '<span class="checkmark-icon">✅</span>' : ''}
+          </div>
+          <div>
+            <span class="mod-lesson-num">Lesson ${mod.id}</span>
+            <div class="mod-title">${mod.title.split('.')[1] || mod.title}</div>
+          </div>
+        `;
+        moduleGrid.appendChild(btn);
+      });
+    }
+
+    function loadModule(id) {
+      const mod = HTML_MODULES.find(m => m.id === id);
+      if (!mod) return;
+
+      activeModuleId = id;
+      currentQuizIndex = 0;
+      selectedOption = '';
+
+      document.getElementById('lesson-emoji').textContent = mod.emoji;
+      document.getElementById('lesson-badge-tag').textContent = `Lesson ${mod.id} of ${HTML_MODULES.length}`;
+      document.getElementById('lesson-title').textContent = mod.title;
+      document.getElementById('lesson-summary').textContent = mod.summary;
+      document.getElementById('lesson-badge-name').textContent = `Badge: ${mod.badgeName}`;
+
+      document.getElementById('analogy-icon').textContent = mod.analogy.icon;
+      document.getElementById('analogy-title').textContent = mod.analogy.title;
+      document.getElementById('analogy-desc').textContent = mod.analogy.description;
+
+      const expGrid = document.getElementById('explanation-grid');
+      expGrid.innerHTML = '';
+      mod.explanations.forEach(exp => {
+        const div = document.createElement('div');
+        div.className = 'exp-box';
+        div.innerHTML = `
+          <h4>✨ ${exp.heading}</h4>
+          <p>${exp.text}</p>
+          ${exp.codeExample ? `<div class="code-example-block"><pre>${exp.codeExample}</pre></div>` : ''}
+        `;
+        expGrid.appendChild(div);
+      });
+
+      loadQuizQuestion();
+
+      codeEditor.value = mod.initialCode;
+      updateLivePreview();
+
+      document.getElementById('btn-prev-lesson').disabled = id === 1;
+      document.getElementById('btn-next-lesson').disabled = id === HTML_MODULES.length;
+      document.getElementById('lesson-counter-tag').textContent = `Module ${id} of ${HTML_MODULES.length}`;
+
+      renderModuleGrid();
+    }
+
+    function loadQuizQuestion() {
+      const mod = HTML_MODULES.find(m => m.id === activeModuleId);
+      const quiz = mod.quizzes[currentQuizIndex];
+
+      document.getElementById('quiz-progress-tag').textContent = `Fill-in-the-Blanks Quiz (${currentQuizIndex + 1} of ${mod.quizzes.length})`;
+      document.getElementById('quiz-prompt').textContent = quiz.prompt;
+
+      const parts = quiz.snippet.split('<__?>');
+      document.getElementById('code-before').textContent = parts[0] || '';
+      document.getElementById('code-blank').textContent = selectedOption || '___';
+      document.getElementById('code-after').textContent = parts[1] || '';
+
+      document.getElementById('quiz-hint-text').textContent = quiz.explanation;
+      document.getElementById('quiz-hint-box').classList.add('hidden');
+
+      document.getElementById('quiz-feedback').classList.add('hidden');
+      document.getElementById('btn-check-quiz').classList.remove('hidden');
+      document.getElementById('btn-next-quiz').classList.add('hidden');
+
+      const optsGrid = document.getElementById('quiz-options-grid');
+      optsGrid.innerHTML = '';
+      quiz.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = `opt-btn ${selectedOption === opt ? 'selected' : ''}`;
+        btn.textContent = opt;
+        btn.onclick = () => {
+          selectedOption = opt;
+          loadQuizQuestion();
+        };
+        optsGrid.appendChild(btn);
+      });
+    }
+
+    function checkQuizAnswer() {
+      const mod = HTML_MODULES.find(m => m.id === activeModuleId);
+      const quiz = mod.quizzes[currentQuizIndex];
+      const feedback = document.getElementById('quiz-feedback');
+
+      if (selectedOption === quiz.blankAnswer) {
+        feedback.className = 'feedback-msg correct';
+        feedback.textContent = 'SUPER BOOM! That is 100% Correct! 🎉';
+        feedback.classList.remove('hidden');
+        triggerConfetti();
+
+        document.getElementById('btn-check-quiz').classList.add('hidden');
+        document.getElementById('btn-next-quiz').classList.remove('hidden');
+
+        if (!completedModules.includes(activeModuleId)) {
+          completedModules.push(activeModuleId);
+          localStorage.setItem('codeforfun_progress', JSON.stringify(completedModules));
+          updateProgressUI();
+          renderModuleGrid();
+        }
+      } else {
+        feedback.className = 'feedback-msg wrong';
+        feedback.textContent = 'Almost there! Try another answer option! 💡';
+        feedback.classList.remove('hidden');
+      }
+    }
+
+    function nextQuizQuestion() {
+      const mod = HTML_MODULES.find(m => m.id === activeModuleId);
+      if (currentQuizIndex < mod.quizzes.length - 1) {
+        currentQuizIndex++;
+        selectedOption = '';
+        loadQuizQuestion();
+      } else {
+        alert(`🎉 Module ${activeModuleId} Completed! Badge Unlocked: ${mod.badgeName}`);
+        if (activeModuleId < HTML_MODULES.length) {
+          activeModuleId++;
+          loadModule(activeModuleId);
+        }
+      }
+    }
+
+    function updateLivePreview() {
+      const code = codeEditor.value;
+      const doc = `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <style>
+              body { font-family: 'Fredoka', 'Quicksand', sans-serif; padding: 1.25rem; background: #FFFBEB; color: #1E1B4B; }
+              h1 { color: #6D28D9; }
+              h2 { color: #D97706; }
+              h3 { color: #2563EB; }
+              p { font-size: 1.05rem; line-height: 1.5; color: #374151; }
+              img { max-width: 100%; height: auto; border-radius: 1rem; }
+              button { background: linear-gradient(135deg, #F59E0B, #EC4899); color: white; border: none; padding: 0.6rem 1.2rem; font-size: 1rem; font-weight: bold; border-radius: 1rem; cursor: pointer; }
+              a { color: #06B6D4; font-weight: bold; text-decoration: underline; }
+              ul, ol { padding-left: 1.5rem; }
+              table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; background: white; border-radius: 0.5rem; overflow: hidden; }
+              th, td { padding: 0.5rem 0.85rem; border-bottom: 1px solid #E5E7EB; text-align: left; }
+              th { background: #6D28D9; color: white; }
+              input { padding: 0.4rem 0.85rem; border-radius: 0.5rem; border: 2px solid #CBD5E1; }
+            </style>
+          </head>
+          <body>${code}</body>
+        </html>
+      `;
+      previewIframe.srcdoc = doc;
+    }
+
+    function updateProgressUI() {
+      const count = completedModules.length;
+      const total = HTML_MODULES.length;
+      const percent = Math.round((count / total) * 100);
+
+      progressText.textContent = `Progress (${count}/${total})`;
+      progressBarFill.style.width = `${percent}%`;
+      progressPercent.textContent = `${percent}%`;
+
+      if (count > 0) {
+        btnCert.classList.remove('hidden');
+      }
+    }
+
+    function openCertificate() {
+      document.getElementById('cert-kid-name').textContent = currentCoderName || 'Master Kid Coder';
+      document.getElementById('cert-desc').textContent = `For successfully mastering ${completedModules.length} out of ${HTML_MODULES.length} HTML Modules, learning tags, elements, attributes, headings, photos, forms, and building web pages from scratch!`;
+      document.getElementById('cert-date').textContent = new Date().toLocaleDateString();
+      certOverlay.classList.remove('hidden');
+      triggerConfetti();
+    }
+
+    function triggerConfetti() {
+      try {
+        if (window.confetti) {
+          window.confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
+        }
+      } catch (e) {}
+    }
+
+    document.addEventListener('DOMContentLoaded', initApp);
+  </script>
 </body>
 </html>
