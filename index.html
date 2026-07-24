@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CodeForFun 🚀 | Learn HTML for Kids 5-10 Years Old</title>
+  <title>CodeForFun 🚀 | The Ultimate 12-Module HTML Storybook Academy</title>
   
   <!-- Google Fonts & Canvas Confetti -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,6 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
   <style>
-    /* ALL CSS INLINED FOR 100% SELF-CONTAINED HTML FILE */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Fredoka', 'Quicksand', system-ui, -apple-system, sans-serif;
@@ -28,7 +27,7 @@
     /* OVERLAYS & MODALS */
     .overlay { position: fixed; inset: 0; z-index: 100; background: rgba(46, 16, 101, 0.85); backdrop-filter: blur(8px); padding: 1rem; }
     .login-card {
-      background: #ffffff; width: 100%; max-width: 440px; border-radius: 2rem; padding: 2.5rem 2rem;
+      background: #ffffff; width: 100%; max-width: 460px; border-radius: 2rem; padding: 2.5rem 2rem;
       border: 4px solid #F59E0B; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35); text-align: center;
       animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
@@ -58,7 +57,7 @@
     /* NAVBAR */
     .navbar { background: #312E81; color: #ffffff; position: sticky; top: 0; z-index: 50; border-bottom: 4px solid #F59E0B; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2); }
     .nav-container { max-width: 1280px; margin: 0 auto; padding: 0.85rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-    .brand { display: flex; items-center; gap: 0.75rem; }
+    .brand { display: flex; align-items: center; gap: 0.75rem; }
     .brand-logo { width: 3rem; height: 3rem; background: #F59E0B; color: #312E81; border-radius: 1.25rem; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transform: rotate(-4deg); }
     .brand-title { font-size: 1.4rem; font-weight: 700; }
     .badge-mini { background: #4338CA; color: #FDE047; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.6rem; border-radius: 1rem; border: 1px solid #6366F1; margin-left: 0.35rem; vertical-align: middle; }
@@ -88,7 +87,7 @@
     }
     .hero-tag { background: #F59E0B; color: #1E1B4B; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 1rem; display: inline-block; margin-bottom: 0.75rem; }
     .hero-text h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .hero-text p { color: #E0E7FF; font-size: 1.1rem; max-width: 600px; }
+    .hero-text p { color: #E0E7FF; font-size: 1.1rem; max-width: 650px; }
     .btn-hero-cert {
       background: linear-gradient(135deg, #F59E0B 0%, #EA580C 100%); color: #ffffff; border: 2px solid #FDE047;
       padding: 1rem 1.75rem; border-radius: 1.25rem; font-family: inherit; font-size: 1.1rem; font-weight: 700; cursor: pointer;
@@ -98,19 +97,19 @@
 
     /* MODULE MAP */
     .section-title { font-size: 1.35rem; font-weight: 700; color: #312E81; margin-bottom: 0.85rem; }
-    .module-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 0.85rem; }
+    .module-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.85rem; }
     .mod-btn {
-      background: #ffffff; border: 3px solid #DDD6FE; border-radius: 1.25rem; padding: 1rem; text-align: left; cursor: pointer;
-      transition: all 0.2s; display: flex; flex-direction: column; justify-content: space-between; height: 120px; position: relative; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      background: #ffffff; border: 3px solid #DDD6FE; border-radius: 1.25rem; padding: 0.85rem; text-align: left; cursor: pointer;
+      transition: all 0.2s; display: flex; flex-direction: column; justify-content: space-between; height: 110px; position: relative; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     }
     .mod-btn:hover { border-color: #8B5CF6; transform: translateY(-2px); }
     .mod-btn.active { background: #312E81; color: #ffffff; border-color: #F59E0B; box-shadow: 0 10px 15px -3px rgba(49, 46, 129, 0.4); transform: scale(1.03); }
     .mod-btn.completed { background: #ECFDF5; border-color: #10B981; }
-    .mod-emoji { font-size: 1.75rem; }
+    .mod-emoji { font-size: 1.5rem; }
     .mod-lesson-num { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: #7C3AED; }
     .mod-btn.active .mod-lesson-num { color: #FDE047; }
-    .mod-title { font-size: 0.85rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .checkmark-icon { position: absolute; top: 0.75rem; right: 0.75rem; font-size: 1.1rem; }
+    .mod-title { font-size: 0.8rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .checkmark-icon { position: absolute; top: 0.5rem; right: 0.5rem; font-size: 1rem; }
 
     /* LESSON CARD */
     .lesson-card { background: #ffffff; border-radius: 2rem; padding: 2rem; border: 4px solid #DDD6FE; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; gap: 2rem; }
@@ -131,10 +130,10 @@
     .analogy-desc { font-size: 1.1rem; line-height: 1.6; color: #E0E7FF; }
 
     /* EXPLANATION GRID */
-    .explanation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
+    .explanation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
     .exp-box { background: #FEF3C7; padding: 1.25rem; border-radius: 1.25rem; border: 2px solid #FDE68A; }
     .exp-box h4 { font-size: 1.1rem; color: #78350F; margin-bottom: 0.5rem; }
-    .exp-box p { font-size: 0.95rem; color: #92400E; line-height: 1.5; margin-bottom: 0.75rem; }
+    .exp-box p { font-size: 0.95rem; color: #92400E; line-height: 1.55; margin-bottom: 0.75rem; }
     .code-example-block { background: #1E1B4B; color: #FDE047; font-family: 'Fira Code', monospace; font-size: 0.85rem; padding: 0.75rem 1rem; border-radius: 0.85rem; overflow-x: auto; }
 
     /* QUIZ CONTAINER */
@@ -147,8 +146,8 @@
     .code-snippet-box { background: #1E1B4B; color: #FDE047; font-family: 'Fira Code', monospace; font-size: 1.1rem; padding: 1.25rem; border-radius: 1.25rem; text-align: center; border: 2px solid #4338CA; }
     .blank-slot { background: #F59E0B; color: #1E1B4B; padding: 0.2rem 0.85rem; border-radius: 0.5rem; font-weight: 700; margin: 0 0.25rem; display: inline-block; min-width: 3.5rem; }
     .hint-box { background: #FEF3C7; color: #78350F; font-size: 0.9rem; padding: 1rem; border-radius: 1rem; border: 1px solid #FCD34D; }
-    .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.75rem; }
-    .opt-btn { background: #F9FAFB; border: 2px solid #E5E7EB; border-radius: 1rem; padding: 0.85rem; font-family: 'Fira Code', monospace; font-size: 1.2rem; font-weight: 700; color: #312E81; cursor: pointer; transition: all 0.15s; }
+    .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 0.75rem; }
+    .opt-btn { background: #F9FAFB; border: 2px solid #E5E7EB; border-radius: 1rem; padding: 0.85rem; font-family: 'Fira Code', monospace; font-size: 1.1rem; font-weight: 700; color: #312E81; cursor: pointer; transition: all 0.15s; }
     .opt-btn:hover { background: #F3E8FF; border-color: #C4B5FD; transform: scale(1.03); }
     .opt-btn.selected { background: #6D28D9; color: #ffffff; border-color: #4C1D95; }
     .quiz-footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
@@ -166,10 +165,10 @@
     .lab-tools { display: flex; align-items: center; gap: 0.75rem; }
     .btn-subtle { background: #4338CA; color: #C7D2FE; border: 1px solid #6366F1; padding: 0.35rem 0.75rem; border-radius: 0.75rem; font-family: inherit; font-size: 0.75rem; font-weight: 700; cursor: pointer; }
     .live-tag { background: rgba(16, 185, 129, 0.2); color: #34D399; font-size: 0.75rem; font-weight: 700; padding: 0.35rem 0.75rem; border-radius: 0.75rem; border: 1px solid rgba(16, 185, 129, 0.4); }
-    .playground-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+    .playground-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
     .pane-header { background: #4338CA; color: #E0E7FF; font-size: 0.75rem; font-weight: 700; padding: 0.4rem 1rem; border-radius: 0.75rem 0.75rem 0 0; text-transform: uppercase; }
-    .code-textarea { width: 100%; height: 280px; background: #0F172A; color: #FDE047; font-family: 'Fira Code', monospace; font-size: 0.95rem; padding: 1rem; border: 2px solid #4338CA; border-radius: 0 0 1rem 1rem; outline: none; resize: vertical; }
-    .preview-iframe { width: 100%; height: 280px; background: #FFFBEB; border: 2px solid #F59E0B; border-radius: 0 0 1rem 1rem; }
+    .code-textarea { width: 100%; height: 300px; background: #0F172A; color: #FDE047; font-family: 'Fira Code', monospace; font-size: 0.95rem; padding: 1rem; border: 2px solid #4338CA; border-radius: 0 0 1rem 1rem; outline: none; resize: vertical; }
+    .preview-iframe { width: 100%; height: 300px; background: #FFFBEB; border: 2px solid #F59E0B; border-radius: 0 0 1rem 1rem; }
 
     /* NAVIGATION FOOTER */
     .lesson-nav-footer { display: flex; align-items: center; justify-content: space-between; border-top: 2px solid #F3E8FF; padding-top: 1.25rem; }
@@ -208,7 +207,7 @@
     <div class="login-card">
       <div class="login-icon animate-bounce">🚀</div>
       <h2>Welcome to CodeForFun! 🚀</h2>
-      <p class="login-sub">Type the secret passcode <strong class="highlight">codeforfun</strong> to unlock the HTML Magic Academy!</p>
+      <p class="login-sub">Type the secret passcode <strong class="highlight">codeforfun</strong> to unlock the 12-Module HTML Academy!</p>
       
       <form id="login-form">
         <div class="form-group">
@@ -228,7 +227,7 @@
         </button>
       </form>
       
-      <p class="login-footer">No email required • Pure Front-End Fun 🎈</p>
+      <p class="login-footer">No email required • 100% Kid Storybook Academy 🎈</p>
     </div>
   </div>
 
@@ -238,14 +237,14 @@
       <div class="brand">
         <div class="brand-logo">🚀</div>
         <div>
-          <h1 class="brand-title">CodeForFun <span class="badge-mini">HTML for Kids</span></h1>
-          <p class="brand-sub">Learn HTML from scratch with magic Lego bricks!</p>
+          <h1 class="brand-title">CodeForFun <span class="badge-mini">12 HTML Modules</span></h1>
+          <p class="brand-sub">Learn HTML from scratch with magical storybook adventures!</p>
         </div>
       </div>
 
       <div class="nav-stats">
         <div class="progress-box">
-          <span id="progress-text" class="progress-label">Progress (0/10)</span>
+          <span id="progress-text" class="progress-label">Progress (0/12)</span>
           <div class="progress-bar-bg">
             <div id="progress-bar-fill" class="progress-bar-fill"></div>
           </div>
@@ -273,18 +272,18 @@
     <!-- HERO BANNER -->
     <section class="hero-banner">
       <div class="hero-text">
-        <span class="hero-tag">✨ Super Kids HTML Academy</span>
+        <span class="hero-tag">✨ Complete 12-Module Storybook Academy</span>
         <h2>Learn HTML from Scratch! 🚀</h2>
-        <p>Master web coding through interactive stories, Lego tag analogies, fill-in-the-blanks challenges, and live coding previews!</p>
+        <p>Master web coding from Web Fundamentals to Web Components, SEO, ARIA & Security with fun Lego stories, fill-in-the-blanks challenges, and live coding previews!</p>
       </div>
       <button id="hero-cert-btn" class="btn-hero-cert">
         📜 Claim Certificate
       </button>
     </section>
 
-    <!-- MODULE MAP (10 LESSONS) -->
+    <!-- MODULE MAP (12 LESSONS) -->
     <section class="module-section">
-      <h3 class="section-title"> Choose Your HTML Quest Module (10 Lessons):</h3>
+      <h3 class="section-title"> Choose Your HTML Quest Module (12 Lessons):</h3>
       <div id="module-grid" class="module-grid">
         <!-- Module buttons generated by JS -->
       </div>
@@ -297,13 +296,13 @@
         <div class="lesson-header-left">
           <div id="lesson-emoji" class="lesson-emoji-box">🧱</div>
           <div>
-            <span id="lesson-badge-tag" class="lesson-badge-tag font-bold">Lesson 1 of 10</span>
-            <h2 id="lesson-title" class="lesson-title-text">What is HTML?</h2>
-            <p id="lesson-summary" class="lesson-summary-text">Discover how web pages are built just like Lego castles!</p>
+            <span id="lesson-badge-tag" class="lesson-badge-tag font-bold">Lesson 1 of 12</span>
+            <h2 id="lesson-title" class="lesson-title-text">Web Fundamentals & How HTML Works</h2>
+            <p id="lesson-summary" class="lesson-summary-text">Discover how the internet delivers HTML packages like a fast postal service!</p>
           </div>
         </div>
         <div id="lesson-badge-name" class="badge-reward-pill">
-          Badge: Lego Architect 🧱
+          Badge: Web Postal Express 📦
         </div>
       </div>
 
@@ -312,11 +311,11 @@
         <div class="analogy-header">
           <span id="analogy-icon" class="analogy-icon">🏰</span>
           <div>
-            <span class="analogy-tag">Real-World Fun Analogy</span>
-            <h3 id="analogy-title">Imagine Building a Toy Castle 🏰</h3>
+            <span class="analogy-tag">Real-World Fun Story Analogy</span>
+            <h3 id="analogy-title">The Secret Internet Postal Service 📮</h3>
           </div>
         </div>
-        <p id="analogy-desc" class="analogy-desc">HTML stands for HyperText Markup Language...</p>
+        <p id="analogy-desc" class="analogy-desc">When you type a web address, your computer sends a flying carrier pigeon (HTTP Request) to a huge Library Castle (Web Server)...</p>
       </div>
 
       <!-- EXPLANATION SECTIONS -->
@@ -391,7 +390,7 @@
       <!-- NAVIGATION FOOTER -->
       <div class="lesson-nav-footer">
         <button id="btn-prev-lesson" class="btn-nav">← Previous Lesson</button>
-        <span id="lesson-counter-tag" class="counter-tag">Module 1 of 10</span>
+        <span id="lesson-counter-tag" class="counter-tag">Module 1 of 12</span>
         <button id="btn-next-lesson" class="btn-nav primary">Next Lesson →</button>
       </div>
 
@@ -406,14 +405,14 @@
       <div class="cert-frame">
         <div class="cert-icon">📜</div>
         <h2 class="cert-heading">Certificate of Excellence</h2>
-        <p class="cert-sub">Official CodeForFun HTML Academy Award</p>
+        <p class="cert-sub">Official CodeForFun 12-Module HTML Academy Award</p>
 
         <p class="cert-body-text">This Official Certificate is Proudly Presented To:</p>
 
         <h3 id="cert-kid-name" class="cert-name">Alex the Coder</h3>
 
         <p id="cert-desc" class="cert-desc">
-          For successfully mastering 10 out of 10 HTML Modules, learning tags, elements, attributes, headings, photos, forms, and building web pages from scratch!
+          For successfully mastering all 12 HTML Modules from Web Fundamentals to Web Components, SEO, ARIA, and Security!
         </p>
 
         <div class="cert-footer">
@@ -422,7 +421,7 @@
             <span id="cert-date" class="cert-val">2026-07-24</span>
           </div>
           <div class="cert-stamp">
-            Certified HTML Developer 🚀
+            Master HTML Developer 🚀
           </div>
           <div>
             <span class="cert-label">Academy Seal</span>
@@ -440,324 +439,436 @@
   </div>
 
   <script>
-    // ALL JS LOGIC INLINED FOR 100% SELF-CONTAINED HTML FILE
+    // FULL 12-MODULE DETAILED STORYBOOK CURRICULUM
     const HTML_MODULES = [
       {
         id: 1,
-        title: '1. What is HTML? The Magic Lego Bricks of the Web!',
-        badgeName: 'Lego Architect 🧱',
-        emoji: '🧱',
-        summary: 'Discover how web pages are built just like Lego castles using magic tags!',
+        title: '1. Web Fundamentals & How HTML Works',
+        badgeName: 'Web Postal Express 📦',
+        emoji: '📦',
+        summary: 'Discover how the internet delivers HTML packages like a fast postal service & parses the DOM tree!',
         analogy: {
-          title: 'Imagine Building a Toy Castle 🏰',
-          description: 'HTML stands for HyperText Markup Language. Think of HTML as a giant box of colorful Lego bricks! Just like you snap blue bricks for walls and red bricks for roofs, HTML uses special tags like <h1> and <p> to snap titles, stories, and photos onto your computer screen!',
-          icon: '🧩'
+          title: 'The Internet Postal Service & The Lego Blueprint 📮',
+          description: 'When you type a website address, your computer sends a flying carrier pigeon (HTTP Request) over the magical internet to a giant Library Castle (Web Server). The castle sends back a secret letter full of HTML Lego instructions! Your web browser is a master builder that reads the HTML letter, builds a DOM Tree (Document Object Model) like a Lego blueprint, paints it with CSS paint, and shows your website on screen!',
+          icon: '📫'
         },
         explanations: [
           {
-            heading: 'What is a Tag?',
-            text: 'A tag is a magic label wrapped in angle brackets `<` and `>`. Tags come in pairs! An opening tag `<h1>` says "Start Title!", and a closing tag `</h1>` (with a slash `/`) says "Stop Title!"'
+            heading: 'HTTP/HTTPS & Client-Server',
+            text: 'Your computer is the Client (asking for candy!). The Server is the Shopkeeper (delivering the web page). HTTPS means the package travels inside an armored dragon chest so nobody can spy on it!'
           },
           {
-            heading: 'Why do we need Tags?',
-            text: 'Computers need clear instructions! Without tags, a computer just sees a big pile of messy words. Tags tell the computer: "Hey! Make this big, make this a photo, and make this a button!"',
-            codeExample: '<h1>My Awesome Pet Dragon 🐉</h1>\n<p>His name is Sparky and he loves tacos!</p>'
+            heading: 'Parsing HTML into the DOM & Render Tree',
+            text: 'When the browser receives HTML text, it turns every tag into a node tree called the DOM (Document Object Model). CSS becomes the CSSOM style sheet, and combined they make the final Render Tree you see on your monitor!'
+          },
+          {
+            heading: 'Syntax Rules & WHATWG Living Standard',
+            text: 'HTML tags come in pairs: opening `<tag>` and closing `</tag>`. Void elements like `<img>` and `<br>` are solo heroes with no closing tag! HTML standards are governed by W3C & WHATWG Living Standards so all computers speak the exact same code language.'
           }
         ],
-        initialCode: '<h1>Welcome to Dragon Land</h1>\n<p>Touch the screen to feed Sparky the Dragon! 🐉</p>',
+        initialCode: '<h1>Welcome to the Web Postal Express! 📦</h1>\n<p>The client asked for a web page, and the server delivered HTML Lego bricks!</p>',
         quizzes: [
           {
-            prompt: 'Which magic tag tells the computer to START a big title?',
-            snippet: '<__?>My Secret Treasure Chest</h1>',
-            blankAnswer: 'h1',
-            options: ['h1', '/h1', 'title', 'box'],
-            explanation: '`<h1>` is the opening tag for the biggest, boldest title on a web page!'
+            prompt: 'What tree does the browser build when it parses your HTML tags?',
+            snippet: 'The browser turns HTML into the <__?> Tree!',
+            blankAnswer: 'DOM',
+            options: ['DOM', 'LEGO', 'TREE', 'POST'],
+            explanation: 'The DOM (Document Object Model) is the internal tree structure of your web page!'
           },
           {
-            prompt: 'What special symbol goes inside a CLOSING tag to say "STOP"?',
-            snippet: '<__?>h1>',
-            blankAnswer: '/',
-            options: ['/', '!', '#', '*'],
-            explanation: 'The slash `/` is the magic "stop" sign for closing tags!'
+            prompt: 'Which protocol means your web package is encrypted inside an armored chest?',
+            snippet: 'Secure websites use <__?>:// instead of http://',
+            blankAnswer: 'https',
+            options: ['https', 'http', 'dns', 'dom'],
+            explanation: 'HTTPS adds security & encryption to web requests!'
           }
         ]
       },
       {
         id: 2,
-        title: '2. Headings & Titles: From Giant Kings to Tiny Knights! 👑',
-        badgeName: 'Royal Crown 👑',
-        emoji: '👑',
-        summary: 'Learn h1, h2, h3, h4, h5, and h6 to make titles of all shapes and sizes!',
+        title: '2. Document Anatomy & Head Configuration',
+        badgeName: 'Brain Castle Master 🧠',
+        emoji: '🧠',
+        summary: 'Learn DOCTYPE, html, head, body, UTF-8 charset, viewport metadata, and favicons!',
         analogy: {
-          title: 'The Royal Heading Family 🏰',
-          description: 'HTML has 6 heading tags, from <h1> to <h6>. Think of <h1> as the Giant King Heading (the biggest!), <h2> as the Queen Heading, <h3> as the Prince, down to <h6> as the tiny Mouse Knight!',
+          title: 'The Skeleton & The Secret Brain Castle 🏰',
+          description: 'Every web page is like a superhero body! <!DOCTYPE html> is the official passport. <html> is the whole body wrapper. <head> is the secret Brain Castle — it holds invisible secret thoughts like character encodings (<meta charset="UTF-8">), tab titles (<title>), mobile viewport settings, and favicon badges! <body> is the visible body where your superhero shows off!',
           icon: '👑'
         },
         explanations: [
           {
-            heading: 'Why 6 Headings?',
-            text: 'When you read a comic book or newspaper, the main headline is BIG, and smaller chapter titles are medium sized. Using different headings helps people read your website easily!'
+            heading: 'Character Encoding UTF-8 & Language',
+            text: '`<meta charset="UTF-8">` tells the computer: "Hey! Understand all languages, emojis, and magic symbols without scrambling them into garbage text!" `<html lang="en">` tells search engines what language your page speaks.'
           },
           {
-            heading: 'Heading Examples in Action',
-            text: '`<h1>` is for the main website title. `<h2>` is for section headings. `<h3>` is for small topic titles.',
-            codeExample: '<h1>🚀 Space Exploration Club</h1>\n<h2>Moon Mission 1</h2>\n<h3>Rocket Countdown</h3>'
+            heading: 'Mobile Viewport Control',
+            text: '`<meta name="viewport" content="width=device-width, initial-scale=1.0">` is the magic spell that makes your website look awesome on smartphones, tablets, and huge TV screens!'
+          },
+          {
+            heading: 'Favicons & Web App Manifests',
+            text: 'Favicons are tiny icon badges shown on your browser tabs (`<link rel="icon" href="favicon.ico">`). Manifests (`site.webmanifest`) allow kids to install your website like a real app on their phone!'
           }
         ],
-        initialCode: '<h1>Super Rocket Academy 🚀</h1>\n<h2>Chapter 1: Blast Off!</h2>\n<h3>3... 2... 1... Ignition!</h3>',
+        initialCode: '<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>My Super Castle</title>\n  </head>\n  <body>\n    <h1>Hello World! 🚀</h1>\n    <p>My Brain Castle is configured with UTF-8 and Mobile Viewport!</p>\n  </body>\n</html>',
         quizzes: [
           {
-            prompt: 'Which heading tag makes the BIGGEST title on the whole page?',
-            snippet: '<__?>The Giant Alien Ship</h1>',
-            blankAnswer: 'h1',
-            options: ['h1', 'h6', 'h10', 'big'],
-            explanation: '`<h1>` is the King of headings — the largest title available!'
-          },
-          {
-            prompt: 'Fill in the missing tag for a medium chapter title:',
-            snippet: '<h2>Chapter 2: The Moon Base<__?>',
-            blankAnswer: '/h2',
-            options: ['/h2', '/h1', '/h6', '/title'],
-            explanation: '`</h2>` closes the medium `<h2>` chapter title cleanly!'
+            prompt: 'Which meta tag ensures emojis and international text render correctly without breaking?',
+            snippet: '<meta charset="<__?>">',
+            blankAnswer: 'UTF-8',
+            options: ['UTF-8', 'ASCII', 'EMOJI', 'HTML5'],
+            explanation: 'UTF-8 is the universal character encoding standard for the web!'
           }
         ]
       },
       {
         id: 3,
-        title: '3. Paragraphs & Storytelling: Typing with `<p>` 📖',
-        badgeName: 'Story Wizard 🧙‍♂️',
-        emoji: '📖',
-        summary: 'Write stories, fun facts, and messages using the paragraph tag!',
+        title: '3. Text Content & Hierarchy',
+        badgeName: 'Royal Text Wizard ✍️',
+        emoji: '✍️',
+        summary: 'Master h1-h6 titles, paragraphs, strong/em, code, pre, mark, time, quotes, and lists!',
         analogy: {
-          title: 'Your Digital Notebook 📝',
-          description: 'The `<p>` tag stands for Paragraph! Whenever you want to write a story sentence, a joke, or a description of your pet, you wrap your text inside `<p>` and `</p>`. It tells the computer to put space around your text like a nice clean paragraph in a book.',
-          icon: '✍️'
+          title: 'The Royal Text Spellbook 📖',
+          description: 'Writing text on a web page is like crafting a magical storybook! <h1> is the King Heading, down to <h6> the Mouse Knight. <p> is for paragraphs. <strong> is a knight in heavy armor (important text!), <em> is an italic voice whisper. <code> and <pre> hold secret computer programming spells!',
+          icon: '📖'
         },
         explanations: [
           {
-            heading: 'How to use `<p>`',
-            text: 'Place your story right between `<p>` and `</p>`. You can have as many paragraphs as you like on your page!'
+            heading: 'Semantic Text Formatting',
+            text: '`<strong>` means IMPORTANT (screen readers say it loudly!), whereas `<b>` is just decorative bold text. `<em>` means stressed emphasis, whereas `<i>` is italic styling. `<time datetime="2026-07-24">` helps computers understand dates!'
           },
           {
-            heading: 'Paragraph Example',
-            text: 'Watch how each paragraph gets its own clean line and spacing on the web page:',
-            codeExample: '<p>Once upon a time, a fluffy cat learned to fly a helicopter.</p>\n<p>She flew all the way to Rainbow Island!</p>'
+            heading: 'Technical & Quotation Semantics',
+            text: '`<code>` displays computer code in monospaced font. `<pre>` preserves exact spaces and line breaks. `<blockquote>` is for big quotes, `<cite>` is for author credits, and `<abbr title="HyperText Markup Language">` gives hover tooltips!'
+          },
+          {
+            heading: 'Unordered, Ordered & Description Lists',
+            text: '`<ul>` makes bullet dots, `<ol type="1" start="1" reversed>` makes numbered lists (or countdowns!), and `<dl>`, `<dt>`, `<dd>` create dictionary term & definition lists!'
           }
         ],
-        initialCode: '<h1>My Flying Puppy 🐶</h1>\n<p>Barnaby is a golden retriever with tiny blue wings.</p>\n<p>He loves eating cheese in the clouds!</p>',
+        initialCode: '<h1>🚀 Space Exploration Log</h1>\n<p>Log Date: <time datetime="2026-07-24">July 24, 2026</time></p>\n<p>Mission Status: <strong>CRITICAL SUCCESS!</strong></p>\n<p>Astronaut note: <em>"The moon looks like cheese!"</em></p>\n<h3>Sample Code Command:</h3>\n<code>runRocketLaunch();</code>',
         quizzes: [
           {
-            prompt: 'What tag is used to write regular story sentences or paragraphs?',
-            snippet: '<__?>I love playing video games with my friends.</p>',
-            blankAnswer: 'p',
-            options: ['p', 'story', 'text', 'para'],
-            explanation: '`<p>` stands for Paragraph!'
+            prompt: 'Which tag indicates IMPORTANT text that screen readers emphasize with strong voice?',
+            snippet: '<__?>Warning: Dragon Approaching!</strong>',
+            blankAnswer: 'strong',
+            options: ['strong', 'b', 'bold', 'mark'],
+            explanation: '`<strong>` provides semantic importance for search engines and screen readers!'
           }
         ]
       },
       {
         id: 4,
-        title: '4. Magic Photos & Pictures: `<img>`, `src` & `alt` 🖼️',
-        badgeName: 'Photo Wizard 📸',
-        emoji: '🖼️',
-        summary: 'Show awesome pictures on your web page using img, src, and alt attributes!',
+        title: '4. Hyperlinks, Navigation & Linking',
+        badgeName: 'Portal Master 🌀',
+        emoji: '🌀',
+        summary: 'Build absolute/relative links, target="_blank" security, deep anchor links, mailto/tel, & resource hints!',
         analogy: {
-          title: 'The Magical Picture Frame 🖼️',
-          description: 'The `<img>` tag is a photo frame! But a frame needs a picture inside it! We use `src="..."` (Source) to give the computer the web address of the picture. And we use `alt="..."` (Alternative Text) as a secret whisper to describe what the photo shows!',
-          icon: '🖼️'
+          title: 'Teleportation Portals & Resource Speed Boosters 🌌',
+          description: 'Links <a> with `href="..."` are magical teleportation portals! Clicking a link instantly teleports you across the internet web world. Using `target="_blank"` opens a new portal tab, while `rel="noopener noreferrer"` acts as an invisible shield to stop sneaky websites from touching your original tab!',
+          icon: '🚀'
         },
         explanations: [
           {
-            heading: 'The Self-Closing Magic!',
-            text: 'Unlike `<h1>` or `<p>`, the `<img>` tag is a SOLO HERO! It does NOT need a closing `</img>` tag because the picture lives entirely inside the attributes!'
+            heading: 'Absolute vs Relative Paths & Security',
+            text: 'Absolute URLs (`https://google.com`) go to external websites. Relative paths (`/about.html`) navigate inside your own site. Always add `rel="noopener noreferrer"` when using `target="_blank"` for security!'
           },
           {
-            heading: 'Image Example',
-            text: 'Here is how you display a cute kitten picture on a website:',
-            codeExample: '<img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=300" alt="A cute superhero puppy">'
+            heading: 'Deep Linking & Special Protocols',
+            text: '`<a href="#treasure">` jumps directly to `<h2 id="treasure">` on the same page! `<a href="mailto:hero@web.com">` opens email apps, `<a href="tel:5551234">` dials phone numbers, and `download` forces file downloading!'
+          },
+          {
+            heading: 'Resource Hints (Preload & Prefetch)',
+            text: '`<link rel="preload">` and `<link rel="preconnect">` tell the computer: "Hey! Pre-warm the internet engines because we are going to load a super fast image or font next!"'
           }
         ],
-        initialCode: '<h2>Superhero Puppy 🐶</h2>\n<img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=300" alt="Superhero puppy looking cool" />\n<p>Meet Buster, the fastest dog on Earth!</p>',
+        initialCode: '<h1>🌌 Portal Teleport Station</h1>\n<p><a href="https://wikipedia.org" target="_blank" rel="noopener noreferrer">Teleport to Wiki 🚀</a></p>\n<p><a href="#secret-chest">Jump to Secret Chest Anchor ↓</a></p>\n<br><br><br>\n<h2 id="secret-chest">💎 You found the Secret Chest Anchor!</h2>',
         quizzes: [
           {
-            prompt: 'Which attribute tells the computer WHERE to find the photo file or image link?',
-            snippet: '<img __?>="cute_dog.jpg" alt="A cute dog">',
-            blankAnswer: 'src',
-            options: ['src', 'link', 'url', 'photo'],
-            explanation: '`src` stands for Source — the address where the picture is located!'
+            prompt: 'Which security attribute MUST accompany target="_blank" links for safe browsing?',
+            snippet: '<a href="site.com" target="_blank" rel="<__?>">Link</a>',
+            blankAnswer: 'noopener noreferrer',
+            options: ['noopener noreferrer', 'safe', 'secure', 'shield'],
+            explanation: '`rel="noopener noreferrer"` prevents performance & security vulnerabilities when opening new tabs!'
           }
         ]
       },
       {
         id: 5,
-        title: '5. Teleport Portals & Action Buttons: `<a>` & `<button>` 🚀',
-        badgeName: 'Portal Master 🌀',
-        emoji: '🌀',
-        summary: 'Build clickable teleport links with <a> and interactive action buttons with <button>!',
+        title: '5. Images, Graphics & Embedded Media',
+        badgeName: 'Media Gallery Wizard 📸',
+        emoji: '📸',
+        summary: 'Master img, alt text, lazy loading, responsive srcset/picture, SVG/canvas, video/audio, & iframe sandbox!',
         analogy: {
-          title: 'Teleportation Portals! 🌌',
-          description: 'The `<a>` tag stands for Anchor (or Portal!). When you click an `<a>` link with `href="https://..."`, your browser instantly teleports to a new web page! The `<button>` tag creates a satisfying clicky button for games and popups!',
-          icon: '🚀'
+          title: 'The Magical Art Gallery & Cinema Hall 🎬',
+          description: 'The `<img>` tag is a picture frame! `src` is the picture address, `alt` is a descriptive whisper for blind friends. Responsive `<picture>` elements select different size art frames for phones vs giant retina monitors! Video `<video>` and audio `<audio>` bring full cinema sound & movies to your web castle!',
+          icon: '🎨'
         },
         explanations: [
           {
-            heading: 'What is `href`?',
-            text: '`href` stands for Hypertext REFerence — it is the destination portal address where your link takes the player when clicked!'
+            heading: 'Raster, Alt Text & Lazy Loading',
+            text: '`loading="lazy"` tells the browser: "Don\'t download this picture until the player scrolls down to see it!" `alt` text describes the image for screen reader users and SEO.'
           },
           {
-            heading: 'Links vs Buttons',
-            text: 'Use `<a>` to teleport to a new page. Use `<button>` for actions like "Play Game", "Jump!", or "Launch Rocket"!',
-            codeExample: '<a href="https://wikipedia.org">Visit Magic Wiki 🌌</a>\n<button>🚀 Launch Spaceship!</button>'
+            heading: 'Responsive Art Direction (<picture> & srcset)',
+            text: '`<picture>` with `<source media="(min-width: 800px)" srcset="big.avif">` automatically picks lightweight modern image formats (AVIF/WebP) depending on screen sizes!'
+          },
+          {
+            heading: 'Vector SVG, Canvas, Media & Iframes',
+            text: '`<svg>` draws crisp vector graphics that never get blurry! `<video controls poster="cover.jpg"><track kind="subtitles" src="sub.vtt"></video>` embeds movies with subtitles! `<iframe>` with `sandbox` embeds mini web worlds securely.'
           }
         ],
-        initialCode: '<h1>Portal Station 🚀</h1>\n<a href="https://google.com">Teleport to Search Engine 🌌</a>\n<br><br>\n<button onclick="alert(\'Blast Off!\')">Press to Launch Rocket! 🚀</button>',
+        initialCode: '<h2>📸 Superhero Gallery</h2>\n<img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=300" alt="A fluffy superhero puppy" loading="lazy" />\n<h3>🎬 Movie Trailer:</h3>\n<video width="320" height="240" controls poster="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=300">\n  <source src="movie.mp4" type="video/mp4">\n</video>',
         quizzes: [
           {
-            prompt: 'Which attribute inside `<a>` specifies the destination URL portal address?',
-            snippet: '<a __?>="https://codeforfun.com">Play Code Games</a>',
-            blankAnswer: 'href',
-            options: ['href', 'target', 'go', 'to'],
-            explanation: '`href` holds the link web address!'
+            prompt: 'Which attribute delays image downloading until the user scrolls down to view it?',
+            snippet: '<img src="dog.jpg" alt="Dog" loading="<__?>">',
+            blankAnswer: 'lazy',
+            options: ['lazy', 'eager', 'defer', 'async'],
+            explanation: '`loading="lazy"` optimizes page load speeds!'
           }
         ]
       },
       {
         id: 6,
-        title: '6. Lists & Inventories: `<ul>`, `<ol>`, & `<li>` 📋',
-        badgeName: 'Inventory Hero 🎒',
-        emoji: '📋',
-        summary: 'Organize items using bullet lists (ul), numbered lists (ol), and list items (li)!',
+        title: '6. Forms, User Inputs & Native Validation',
+        badgeName: 'Form Controller 🎮',
+        emoji: '🎮',
+        summary: 'Explore forms, input deep dive, fieldsets, textareas, select datalists, regex patterns & validation!',
         analogy: {
-          title: 'Your Gamer Backpack Inventory 🎒',
-          description: 'Imagine opening your video game inventory bag! Bullet lists `<ul>` (Unordered List) show dots for items like snacks or toys. Numbered lists `<ol>` (Ordered List) show 1, 2, 3 steps for high scores or baking recipes! Every item inside uses `<li>` (List Item).',
-          icon: '🎒'
+          title: 'The Secret Questionnaire & Game Controller 📝',
+          description: '<form> is a magical clipboard asking players for secret details! <label for="name"> pairs your question to the input box so touching the label highlights the box! <input type="..."> offers text, passwords, colors, sliders, date pickers, and file uploads. Built-in HTML validation acts as a referee that checks if emails and numbers are correct before submitting!',
+          icon: '📝'
         },
         explanations: [
           {
-            heading: 'How Lists Work Together',
-            text: '`<ul>` or `<ol>` is the outer container box. `<li>` wraps each item inside the box!'
+            heading: 'Form Structure & Label Matching',
+            text: '`<form action="/submit" method="POST" enctype="multipart/form-data">` sends input data. Always wrap questions in `<label for="hero-name">` matching `<input id="hero-name">`!'
+          },
+          {
+            heading: 'Input Types & Advanced Dropdowns',
+            text: '`<input type="text|email|number|range|color|date|file|checkbox|radio">`. `<textarea>` is for multi-line stories. `<select><optgroup><option>` and `<datalist>` create auto-complete search dropdowns!'
+          },
+          {
+            heading: 'Native Constraint Validation API',
+            text: 'Attributes like `required`, `min="1"`, `max="100"`, `minlength="3"`, `pattern="[A-Z]{3}"` enforce strict validation rules directly in HTML without needing JavaScript!'
           }
         ],
-        initialCode: '<h2>🎒 My Top 3 Favorite Games</h2>\n<ol>\n  <li>Minecraft</li>\n  <li>Roblox</li>\n  <li>Super Mario Bros</li>\n</ol>',
+        initialCode: '<h2>🎮 Hero Registration Form</h2>\n<form>\n  <fieldset>\n    <legend>Personal Info</legend>\n    <label for="name">Hero Name:</label><br>\n    <input type="text" id="name" required minlength="3" placeholder="Captain Spark"><br><br>\n    <label for="color">Cape Color:</label><br>\n    <input type="color" id="color"><br><br>\n    <label for="power">Power Level (1-100):</label><br>\n    <input type="range" id="power" min="1" max="100">\n  </fieldset>\n  <br>\n  <button type="submit">Submit Hero 🛡️</button>\n</form>',
         quizzes: [
           {
-            prompt: 'Which tag wraps EACH individual item inside a list?',
-            snippet: '<ul>\n  <__?>Golden Sword</li>\n</ul>',
-            blankAnswer: 'li',
-            options: ['li', 'ul', 'ol', 'item'],
-            explanation: '`<li>` stands for List Item!'
+            prompt: 'Which attribute makes an input box MANDATORY before a form can be submitted?',
+            snippet: '<input type="text" <__?>>',
+            blankAnswer: 'required',
+            options: ['required', 'must', 'needed', 'pattern'],
+            explanation: '`required` enforces native browser form validation!'
           }
         ]
       },
       {
         id: 7,
-        title: '7. Toy Boxes & Highlighters: `<div>` & `<span>` 📦',
-        badgeName: 'Box Stacker 📦',
-        emoji: '📦',
-        summary: 'Group big sections using div boxes and highlight special text using span!',
+        title: '7. Data Tables & Tabular Markup',
+        badgeName: 'Table Grid Leader 📊',
+        emoji: '📊',
+        summary: 'Construct table, tr, th, td, thead, tbody, tfoot, caption, colspan, rowspan, & scope="col|row"!',
         analogy: {
-          title: 'Toy Boxes & Magic Highlighters 📦',
-          description: 'Think of `<div>` as a giant plastic storage box to group toys together on a shelf. Think of `<span>` as a neon yellow highlighter marker to make a single word pop out inside a sentence!',
-          icon: '📦'
+          title: 'The High Score Leaderboard Grid 📊',
+          description: 'A data table <table> is like a giant grid game board! <caption> gives the table a proud title. <thead> holds the column headers, <tbody> holds the scores, and <tfoot> sums up the total. `scope="col"` tells screen reader visitors: "This header belongs to the whole column below!"',
+          icon: '🏆'
         },
         explanations: [
           {
-            heading: 'Block vs Inline Containers',
-            text: '`<div>` takes up a full new block line. `<span>` sits inline inside a sentence without breaking the text flow!'
+            heading: 'Core Structure & Semantic Sections',
+            text: '`<table>` wraps everything. `<caption>` names the table. `<thead>` holds title rows `<tr><th>`, `<tbody>` holds data rows `<tr><td>`, and `<tfoot>` holds summary rows.'
+          },
+          {
+            heading: 'Spanning & Accessibility Scoping',
+            text: '`colspan="2"` stretches a cell across 2 columns. `rowspan="2"` stretches down across 2 rows. `scope="col"` and `scope="row"` make tables readable for screen readers!'
+          },
+          {
+            heading: 'Column Styling with <colgroup>',
+            text: '`<colgroup><col style="background: yellow;"><col></colgroup>` lets you color entire vertical columns in one line of code!'
           }
         ],
-        initialCode: '<div style="background: #FEF3C7; padding: 15px;">\n  <h2>Secret Cave Treasure 💎</h2>\n  <p>I found a <span style="color: #DC2626; font-weight: bold;">fire-red</span> ruby!</p>\n</div>',
+        initialCode: '<table>\n  <caption>🏆 Game High Scores</caption>\n  <thead>\n    <tr>\n      <th scope="col">Player</th>\n      <th scope="col">Level</th>\n      <th scope="col">Score</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Alex</td>\n      <td>99</td>\n      <td>9,500 pts</td>\n    </tr>\n    <tr>\n      <td>Sam</td>\n      <td>85</td>\n      <td>8,900 pts</td>\n    </tr>\n  </tbody>\n</table>',
         quizzes: [
           {
-            prompt: 'Which container tag is used to group big layout blocks on a web page?',
-            snippet: '<__?>\n  <h1>Welcome to my Fortress</h1>\n</div>',
-            blankAnswer: 'div',
-            options: ['div', 'span', 'box', 'section'],
-            explanation: '`<div>` (Division) is the main container box tag in HTML!'
+            prompt: 'Which accessibility attribute tells screen readers that a header <th> belongs to a column?',
+            snippet: '<th scope="<__?>">Player Name</th>',
+            blankAnswer: 'col',
+            options: ['col', 'row', 'grid', 'table'],
+            explanation: '`scope="col"` associates header cells with column data for accessibility!'
           }
         ]
       },
       {
         id: 8,
-        title: '8. Interactive Forms & Inputs: Asking Questions! 🎮',
-        badgeName: 'Game Controller 🎮',
-        emoji: '🎮',
-        summary: 'Let players type names, pick colors, check boxes, and slide controls with input!',
+        title: '8. Semantic HTML & Document Architecture',
+        badgeName: 'Architect Superhero 🏛️',
+        emoji: '🏛️',
+        summary: 'Replace Divitis with header, nav, main, article, section, aside, footer, details/summary, & dialog!',
         analogy: {
-          title: 'Your Video Game Character Creator 🎮',
-          description: 'Ever created a character in a game where you type your hero name, pick your armor color, and slide your power levels? That is made with `<input>` tags inside a `<form>`!',
-          icon: '🎮'
+          title: 'The Semantic Superhero Castle 🏰',
+          description: 'Stop using generic <div> boxes for everything (Divitis)! Instead, use Semantic Superhero Tags! <header> is the castle tower, <nav> is the portal map room, <main> is the royal throne room, <article> is a self-contained story scroll, <aside> is a side tower, and <footer> is the castle basement! Native <details> and <dialog> build accordions and popups without JavaScript!',
+          icon: '🏛️'
         },
         explanations: [
           {
-            heading: 'Input Types',
-            text: '`<input type="text">` creates a typing box. `<input type="color">` opens a color picker! `<input type="checkbox">` makes a check box!'
+            heading: 'Structural Landmarks vs Divitis',
+            text: 'Semantic HTML tags tell search engines and screen readers the exact purpose of every room on your website. `<header>`, `<nav>`, `<main>`, `<article>`, `<section>`, `<aside>`, `<footer>`.'
+          },
+          {
+            heading: 'Modern Interactive Semantic Tags',
+            text: '`<details><summary>Click to reveal secret!</summary><p>Boo!</p></details>` builds native collapsible accordions. `<figure><img ...><figcaption>Photo Caption</figcaption></figure>` packages images cleanly.'
+          },
+          {
+            heading: 'Native Dialog Modals (<dialog>)',
+            text: '`<dialog id="my-modal"><h2>Popup!</h2></dialog>` creates real HTML popups that can be opened natively using JavaScript `.showModal()`!'
           }
         ],
-        initialCode: '<h2>🎮 Character Creator</h2>\n<form>\n  <label>Hero Name:</label><br>\n  <input type="text" placeholder="e.g. Captain Spark"><br><br>\n  <label>Armor Color:</label><br>\n  <input type="color"><br><br>\n  <button type="button">Save Hero! 🛡️</button>\n</form>',
+        initialCode: '<header>\n  <h1>🏰 Superhero Kingdom</h1>\n  <nav><a href="#">Home</a> | <a href="#">Quests</a></nav>\n</header>\n<main>\n  <article>\n    <h2>Story of the Golden Dragon</h2>\n    <p>Once upon a time...</p>\n  </article>\n  <details>\n    <summary>Click to reveal secret clue! 🔍</summary>\n    <p>The golden key is hidden under the bed!</p>\n  </details>\n</main>\n<footer>&copy; 2026 CodeForFun</footer>',
         quizzes: [
           {
-            prompt: 'Which input type lets a player type text sentences into a web page?',
-            snippet: '<input type="__?">',
-            blankAnswer: 'text',
-            options: ['text', 'color', 'checkbox', 'range'],
-            explanation: '`type="text"` creates a text typing box!'
+            prompt: 'Which semantic tag represents the unique primary content of a web page?',
+            snippet: '<__?>\n  <h1>Main Throne Room</h1>\n</main>',
+            blankAnswer: 'main',
+            options: ['main', 'body', 'section', 'div'],
+            explanation: '`<main>` holds the primary central content of the document!'
           }
         ]
       },
       {
         id: 9,
-        title: '9. Leaderboard Tables: `<table>`, `<tr>`, `<th>`, & `<td>` 🏆',
-        badgeName: 'Score Master 🏆',
-        emoji: '🏆',
-        summary: 'Build high-score leaderboards and game stats using HTML tables!',
+        title: '9. SEO, Open Graph & Web Metadata',
+        badgeName: 'SEO Detective 🔍',
+        emoji: '🔍',
+        summary: 'Configure meta descriptions, robots, canonicals, Open Graph, Twitter Cards, & Schema.org JSON-LD!',
         analogy: {
-          title: 'The High Score Leaderboard Board 📊',
-          description: 'A table is like a grid game board! `<table>` is the table board. `<tr>` (Table Row) is a horizontal row from left to right. `<th>` (Table Header) is a bold column header title. `<td>` (Table Data) is the individual score cell!',
-          icon: '🏆'
+          title: 'The Magic Search Engine Glasses 👓',
+          description: 'Search Engine Bots (like Google) wear special magical glasses that read invisible metadata in your <head>! Meta descriptions explain your page in search results. Open Graph tags (`og:title`, `og:image`) create beautiful card previews when you share your link on WhatsApp or Twitter! Schema.org JSON-LD scripts tell Google your page is a star recipe or game!',
+          icon: '🔍'
         },
         explanations: [
           {
-            heading: 'Table Anatomy',
-            text: 'Rows `<tr>` hold data cells `<td>` side by side like Lego tiles in a row.'
+            heading: 'Search Engine Metadata & Canonicals',
+            text: '`<meta name="description" content="...">` provides search snippet previews. `<meta name="robots" content="index, follow">` grants search crawlers permission. `<link rel="canonical" href="...">` prevents duplicate content issues.'
+          },
+          {
+            heading: 'Social Graph Sharing (Open Graph & Twitter)',
+            text: '`<meta property="og:title" content="...">`, `<meta property="og:image" content="banner.jpg">` ensure your site looks super cool when shared in chat apps!'
+          },
+          {
+            heading: 'Structured Data (JSON-LD & Microdata)',
+            text: '`<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Course", "name": "HTML for Kids"}</script>` gives Google rich snippet badges!'
           }
         ],
-        initialCode: '<h2>🏆 Game High Scores</h2>\n<table>\n  <tr>\n    <th>Player</th>\n    <th>Score</th>\n  </tr>\n  <tr>\n    <td>Alex</td>\n    <td>9,500 pts</td>\n  </tr>\n  <tr>\n    <td>Sam</td>\n    <td>8,900 pts</td>\n  </tr>\n</table>',
+        initialCode: '<head>\n  <meta name="description" content="Learn HTML from scratch with fun Lego stories!">\n  <meta property="og:title" content="CodeForFun HTML Academy">\n  <meta property="og:image" content="https://codeforfun.com/banner.jpg">\n  <script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "EducationalOrganization",\n    "name": "CodeForFun"\n  }\n  <\/script>\n</head>',
         quizzes: [
           {
-            prompt: 'Which tag creates a horizontal row inside a table?',
-            snippet: '<table>\n  <__?>\n    <td>Item 1</td>\n  </tr>\n</table>',
-            blankAnswer: 'tr',
-            options: ['tr', 'td', 'th', 'table'],
-            explanation: '`<tr>` stands for Table Row!'
+            prompt: 'Which protocol prefix is used to format social media preview cards?',
+            snippet: '<meta property="<__?>:title" content="My Page">',
+            blankAnswer: 'og',
+            options: ['og', 'seo', 'meta', 'card'],
+            explanation: '`og:` stands for Open Graph — the standard for social sharing cards!'
           }
         ]
       },
       {
         id: 10,
-        title: '10. The Master Website Blueprint: DOCTYPE, html, head, & body 🏰',
-        badgeName: 'HTML Master Legend 👑🌟',
-        emoji: '🏰',
-        summary: 'Combine everything you learned into a complete, professional HTML web page!',
+        title: '10. Web Accessibility (A11y) & ARIA',
+        badgeName: 'Accessibility Champion ♿',
+        emoji: '♿',
+        summary: 'Learn WCAG POUR principles, keyboard focus management, tabindex, ARIA roles & live regions!',
         analogy: {
-          title: 'The Human Body Analogy 🧍‍♂️',
-          description: 'Every real web page has a complete skeleton structure! `<!DOCTYPE html>` is the passport. `<html>` is the entire body. `<head>` is the brain (holds title and secret settings). `<body>` is the main body where all visible pictures, text, and buttons live!',
-          icon: '🧠'
+          title: 'The Accessible Playground for Everyone 🎈',
+          description: 'Web Accessibility (A11y) means building web pages so EVERY kid—including friends who are blind, deaf, or use a keyboard without a mouse—can play effortlessly! The 1st rule of ARIA: "Don\'t use ARIA if a native HTML tag exists!" ARIA attributes (`aria-label`, `aria-expanded`, `aria-live`) act as voice announcers for screen readers!',
+          icon: '♿'
         },
         explanations: [
           {
-            heading: 'Head vs Body',
-            text: '`<head>` contains invisible metadata and the browser tab `<title>`. `<body>` contains everything you SEE on screen!'
+            heading: 'WCAG Principles (POUR)',
+            text: 'POUR stands for: Perceivable (clear contrast & alt text), Operable (keyboard navigable), Understandable (clear labels), and Robust (standard valid HTML).'
+          },
+          {
+            heading: 'Keyboard Focus & Tabindex',
+            text: 'Never remove CSS outline focus states! `tabindex="0"` makes custom elements focusable via Tab key. Avoid positive `tabindex` numbers that break logical tab order.'
+          },
+          {
+            heading: 'ARIA Roles, States & Live Regions',
+            text: '`role="alert"` or `aria-live="polite"` automatically announces new score updates or popups to screen reader users in real time!'
           }
         ],
-        initialCode: '<!DOCTYPE html>\n<html>\n  <head>\n    <title>My Super Web Castle</title>\n  </head>\n  <body>\n    <h1>Welcome to My Website! 🚀</h1>\n    <p>I built this using HTML magic!</p>\n  </body>\n</html>',
+        initialCode: '<button aria-label="Close Modal Dialog">❌</button>\n<div role="alert" aria-live="assertive">\n  Score Updated: 100 Points! 🎉\n</div>\n<a href="#" tabindex="0">Keyboard Focusable Link</a>',
         quizzes: [
           {
-            prompt: 'Where do visible titles, photos, and buttons live on a web page?',
-            snippet: '<__?>\n  <h1>I am visible!</h1>\n</body>',
-            blankAnswer: 'body',
-            options: ['body', 'head', 'title', 'footer'],
-            explanation: '`<body>` holds all visible content that visitors see on screen!'
+            prompt: 'What is the First Rule of ARIA?',
+            snippet: 'Don\'t use ARIA if a native <__?> tag already exists!',
+            blankAnswer: 'HTML',
+            options: ['HTML', 'CSS', 'JS', 'DIV'],
+            explanation: 'Native HTML tags (`<button>`, `<header>`) possess built-in accessibility!'
+          }
+        ]
+      },
+      {
+        id: 11,
+        title: '11. Web Components & Custom Elements',
+        badgeName: 'Component Chemist 🧪',
+        emoji: '🧪',
+        summary: 'Discover <template>, <slot>, Custom Elements, & Declarative Shadow DOM (<template shadowrootmode="open">)!',
+        analogy: {
+          title: 'The Magic Mold & Custom Toy Factory 🏭',
+          description: 'Imagine creating your own custom Lego brick tag like `<kid-card>`! The `<template>` tag is an inert magic mold—it stays invisible until you clone it with JavaScript. The `<slot>` tag is a cutout window where you drop custom text into your web component. Declarative Shadow DOM isolates styles so your component looks perfect anywhere!',
+          icon: '🏭'
+        },
+        explanations: [
+          {
+            heading: 'The <template> & <slot> Tags',
+            text: '`<template>` holds HTML markup that isn\'t rendered on page load. `<slot name="title">` acts as a placeholder for user markup inside web components.'
+          },
+          {
+            heading: 'Declarative Shadow DOM',
+            text: '`<template shadowrootmode="open"><style>h1{color:red;}</style><h1><slot></slot></h1></template>` scopes styles inside the shadow root so CSS styles never leak out!'
+          }
+        ],
+        initialCode: '<template id="my-card-template">\n  <style>\n    .card { background: #FEF3C7; padding: 15px; border-radius: 10px; }\n  </style>\n  <div class="card">\n    <h3><slot name="title">Default Title</slot></h3>\n    <p><slot name="desc">Default Description</slot></p>\n  </div>\n</template>\n\n<p>Template stored in memory! Ready for cloning!</p>',
+        quizzes: [
+          {
+            prompt: 'Which HTML tag stores inert markup that does not render on page load until cloned?',
+            snippet: '<<__?> id="my-blueprint">\n  <h1>Inert Content</h1>\n</template>',
+            blankAnswer: 'template',
+            options: ['template', 'slot', 'script', 'style'],
+            explanation: '`<template>` stores non-rendered DOM fragments for reusable web components!'
+          }
+        ]
+      },
+      {
+        id: 12,
+        title: '12. Security, Performance & Code Quality',
+        badgeName: 'Cyber Guardian Shield 🛡️',
+        emoji: '🛡️',
+        summary: 'Learn CSP meta security, XSS prevention, rel="noopener", lazy loading, & W3C HTML validation!',
+        analogy: {
+          title: 'The Royal Guardian Shield & Speed Engine 🛡️⚡',
+          description: 'Your web castle needs strong defenses! Content Security Policy (CSP) and rel="noopener noreferrer" act as royal knights guarding against hacker attacks (XSS). Performance optimizations like image lazy loading (loading="lazy") and clean W3C HTML validation ensure your website loads in split seconds!',
+          icon: '🛡️'
+        },
+        explanations: [
+          {
+            heading: 'Security & XSS Prevention',
+            text: '`<meta http-equiv="Content-Security-Policy" content="...">` blocks unauthorized scripts. Always sanitize user input before inserting HTML to prevent XSS attacks.'
+          },
+          {
+            heading: 'Performance & W3C Code Validation',
+            text: 'Use `loading="lazy"` on images and iframes. Validate your HTML code using the W3C Markup Validation Service to ensure 100% standard compliance!'
+          }
+        ],
+        initialCode: '<meta http-equiv="Content-Security-Policy" content="default-src \'self\';">\n<h2>🛡️ Secure Castle Page</h2>\n<p>Protected by CSP Security Headers & W3C Validation!</p>\n<img src="castle.jpg" alt="Safe Castle" loading="lazy" />',
+        quizzes: [
+          {
+            prompt: 'Which security header meta tag restricts where scripts and media can be loaded from?',
+            snippet: '<meta http-equiv="<__?>-Security-Policy" content="default-src \'self\'">',
+            blankAnswer: 'Content',
+            options: ['Content', 'Script', 'XSS', 'Shield'],
+            explanation: 'Content Security Policy (CSP) defends websites against Cross-Site Scripting (XSS)!'
           }
         ]
       }
@@ -1064,7 +1175,7 @@
 
     function openCertificate() {
       document.getElementById('cert-kid-name').textContent = currentCoderName || 'Master Kid Coder';
-      document.getElementById('cert-desc').textContent = `For successfully mastering ${completedModules.length} out of ${HTML_MODULES.length} HTML Modules, learning tags, elements, attributes, headings, photos, forms, and building web pages from scratch!`;
+      document.getElementById('cert-desc').textContent = `For successfully mastering all ${completedModules.length} out of ${HTML_MODULES.length} HTML Modules, learning tags, elements, attributes, headings, photos, forms, semantic landmarks, ARIA, Web Components, and security from scratch!`;
       document.getElementById('cert-date').textContent = new Date().toLocaleDateString();
       certOverlay.classList.remove('hidden');
       triggerConfetti();
